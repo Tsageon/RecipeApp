@@ -13,7 +13,7 @@
         {"item": "egg", "quantity": "1"},
         {"item": "vanilla extract", "quantity": "1 teaspoon"},
         {
-          "item": "optional/Extra ingredients",
+          "item": "Optional/Extra ingredients",
           "items": [
             {"item": "blueberries", "quantity": "1 cup"},
             {"item": "chocolate chips", "quantity": "1 cup"},
@@ -52,7 +52,7 @@
         "Preheat your oven to 350°F (175°C). Grease and flour two 9-inch round baking pans.",
         "In a large bowl, stir together the flour, sugar, cocoa powder, baking powder, baking soda, and salt.",
         "Add the eggs, milk, oil, and vanilla extract. Beat on medium speed for 2 minutes.",
-        "Stir in the boiling water. The batter will be thin, but that’s okay.",
+        "Stir in the boiling water. The batter will be thin, but that is okay.",
         "Pour the batter evenly into the prepared pans.",
         "Bake for 30 to 35 minutes, or until a toothpick inserted into the center comes out clean.",
         "Cool the cakes in the pans for 10 minutes, then remove them from the pans and transfer to a wire rack to cool completely.",
