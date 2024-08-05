@@ -21,24 +21,20 @@ const App = () => {
       name: newRecipeName,
       image: '',
       ingredients: newRecipeIngredients,
-      instructions: newRecipeInstructions,
-    };
+      instructions: newRecipeInstructions, };
     setRecipes([...recipes, newRecipe]);
     setNewRecipeName('');
     setNewRecipeIngredients([]);
     setNewRecipeInstructions([]);
-    setShowAddRecipeForm(false);
-  };
+    setShowAddRecipeForm(false);};
 
   const addIngredient = () => {
     setNewRecipeIngredients([...newRecipeIngredients, { item: newIngredient }]);
-    setNewIngredient('');
-  };
+    setNewIngredient('');};
 
   const addInstruction = () => {
     setNewRecipeInstructions([...newRecipeInstructions, newInstruction]);
-    setNewInstruction('');
-  };
+    setNewInstruction('');};
 
   const editRecipe = (updatedRecipe) => {
     setRecipes(recipes.map(recipe => recipe.id === updatedRecipe.id ? updatedRecipe : recipe));
@@ -52,14 +48,12 @@ const App = () => {
   const nextRecipe = () => {
     if (currentRecipeIndex < recipes.length - 1) {
       setCurrentRecipeIndex(currentRecipeIndex + 1);
-    }
-  };
+    }};
 
   const previousRecipe = () => {
     if (currentRecipeIndex > 0) {
       setCurrentRecipeIndex(currentRecipeIndex - 1);
-    }
-  };
+    }};
 
   useEffect(() => {
     fetch('/DB.json')
@@ -67,34 +61,27 @@ const App = () => {
         if (!response.ok) {
           throw new Error('Network response error');
         }
-        return response.json();
-      })
+        return response.json();})
       .then(data => {
         const recipesWithIds = data.recipes.map(recipe => ({
           ...recipe,
-          id: uuidv4(),
-        }));
+          id: uuidv4(),}));
         setRecipes(recipesWithIds);
-        setLoading(false);
-      })
+        setLoading(false);})
       .catch(error => {
         console.error('Error fetching data:', error);
         setError(error);
-        setLoading(false);
-      });
+        setLoading(false);});
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
-  }
+    return <div>Loading...</div>;}
 
   if (error) {
-    return <div>Error: {error.message}</div>;
-  }
+    return <div>Error: {error.message}</div>;}
 
   if (recipes.length === 0) {
-    return <div>No recipes available.</div>;
-  }
+    return <div>No recipes available.</div>;}
 
   return (
     <div className="app">

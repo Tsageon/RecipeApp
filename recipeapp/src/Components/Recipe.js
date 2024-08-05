@@ -10,8 +10,7 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
     if (editable) {
       onEdit(editedRecipe);
     }
-    setEditable(!editable);
-  };
+    setEditable(!editable);};
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,22 +32,16 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
   return (
     <div className="recipe">
       {editable ? (
-        <input
-          type="text"
-          name="name"
+        <input type="text" name="name"
           value={editedRecipe.name}
-          onChange={handleChange}
-        />
+          onChange={handleChange}/>
       ) : (
         <h2>{recipe.name}</h2>
       )}
       {editable ? (
-        <input
-          type="text"
-          name="image"
+        <input type="text" name="image"
           value={editedRecipe.image}
-          onChange={handleChange}
-        />
+          onChange={handleChange}/>
       ) : (
         <img src={recipe.image} alt={recipe.name}/>
       )}
@@ -63,11 +56,8 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
         {recipe.instructions.slice(0, showAllInstructions ? recipe.instructions.length : 4).map((instruction, index) => (
           <li key={index}>
             {editable ? (
-              <input
-                type="text"
-                value={instruction}
-                onChange={(e) => handleInstructionChange(index, e.target.value)}
-              />
+              <input type="text" value={instruction}
+                onChange={(e) => handleInstructionChange(index, e.target.value)}/>
             ) : (
               instruction
             )}

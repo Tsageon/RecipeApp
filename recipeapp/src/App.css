@@ -57,7 +57,7 @@ h1 {
   list-style-position: inside;}
 
 .recipe button {
-  background-color: #007bff;
+  background-color:grey;
   border: none;
   color: white;
   padding: 10px 20px;
@@ -109,13 +109,11 @@ h1 {
 @media (max-width: 768px) {
   .recipe {
     max-width: 100%;
-    margin: 8px;
-  }
+    margin: 8px; }
   
   .buttons-container {
     display: flex;
     flex-direction: column;}
   
   .buttons-container button {
-    margin: 8px 0;
-  }}
+    margin: 8px 0;}}
