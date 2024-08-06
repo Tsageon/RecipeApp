@@ -32,64 +32,75 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
     });
   };
 
+  const handleIngredientChange = (index, e) => {
+    const { name, value } = e.target;
+    const updatedIngredients = [...editedRecipe.ingredients];
+    updatedIngredients[index][name] = value;
+    setEditedRecipe({
+      ...editedRecipe,
+      ingredients: updatedIngredients,
+    });
+  };
+
   const handleAddIngredient = () => {
     if (newIngredient.quantity && newIngredient.item) {
       setEditedRecipe({
         ...editedRecipe,
-        ingredients: [...editedRecipe.ingredients, newIngredient],
-      });
+        ingredients: [...editedRecipe.ingredients, newIngredient],});
       setNewIngredient({ quantity: '', item: '' });
       alert('Ingredient added!');
     } else {
-      alert('Please enter both quantity and item.');
-    }
-  };
+      alert('Enter both quantity and item.');
+    }};
 
   const handleAddInstruction = () => {
     if (newInstruction) {
       setEditedRecipe({
         ...editedRecipe,
-        instructions: [...editedRecipe.instructions, newInstruction],
-      });
+        instructions: [...editedRecipe.instructions, newInstruction],});
       setNewInstruction('');
       alert('Instruction added!');
     } else {
-      alert('Please enter an instruction.');
-    }
-  };
+      alert('Enter an instruction.');
+    }};
 
   return (
     <div className="recipe">
       {editable ? (
-        <input type="text" name="name" value={editedRecipe.name} onChange={handleChange} />
+        <input type="text" name="name"
+          value={editedRecipe.name} onChange={handleChange}/>
       ) : (
         <h2>{recipe.name}</h2>
       )}
       {editable ? (
-        <input type="text" name="image" value={editedRecipe.image} onChange={handleChange} />
+        <input type="text" name="image"
+          value={editedRecipe.image} onChange={handleChange}/>
       ) : (
-        <img src={recipe.image} alt={recipe.name} />
+        <img src={recipe.image} alt={recipe.name}/>
       )}
       <h3>Ingredients:</h3>
       <ul>
         {editedRecipe.ingredients.map((ingredient, index) => (
-          <li key={index}>{ingredient.quantity} of {ingredient.item}</li>
+          <li key={index}>
+            {editable ? (
+              <div className="ingredient-edit">
+                <input type="text" name="item"
+                  value={ingredient.item} onChange={(e) => handleIngredientChange(index, e)}/>
+                <input type="text" name="quantity"
+                  value={ingredient.quantity} onChange={(e) => handleIngredientChange(index, e)}/>
+              </div>
+            ) : (
+              `${ingredient.quantity} of ${ingredient.item}`
+            )}
+          </li>
         ))}
       </ul>
       {editable && (
         <div className="add-ingredient">
-          <input
-            type="text"
-            placeholder="Quantity"
-            value={newIngredient.quantity}
-            onChange={(e) => setNewIngredient({ ...newIngredient, quantity: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Item"
-            value={newIngredient.item}
-            onChange={(e) => setNewIngredient({ ...newIngredient, item: e.target.value })}
-          />
+          <input type="text" placeholder="Quantity"
+            value={newIngredient.quantity} onChange={(e) => setNewIngredient({...newIngredient, quantity: e.target.value})}/>
+          <input type="text" placeholder="Item"
+            value={newIngredient.item} onChange={(e) => setNewIngredient({...newIngredient, item: e.target.value})}/>
           <button onClick={handleAddIngredient}>Add Ingredient</button>
         </div>
       )}
@@ -98,11 +109,7 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
         {editedRecipe.instructions.slice(0, showAllInstructions ? editedRecipe.instructions.length : 4).map((instruction, index) => (
           <li key={index}>
             {editable ? (
-              <input
-                type="text"
-                value={instruction}
-                onChange={(e) => handleInstructionChange(index, e.target.value)}
-              />
+              <input type="text" value={instruction} onChange={(e) => handleInstructionChange(index, e.target.value)}/>
             ) : (
               instruction
             )}
@@ -116,12 +123,8 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
       )}
       {editable && (
         <div className="add-instruction">
-          <input
-            type="text"
-            placeholder="New Instruction"
-            value={newInstruction}
-            onChange={(e) => setNewInstruction(e.target.value)}
-          />
+          <input type="text" placeholder="New Instruction"
+            value={newInstruction} onChange={(e) => setNewInstruction(e.target.value)}/>
           <button onClick={handleAddInstruction}>Add Instruction</button>
         </div>
       )}

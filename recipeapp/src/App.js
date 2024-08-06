@@ -11,24 +11,29 @@ const App = () => {
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredRecipes, setFilteredRecipes] = useState([]);
-  const [showAddForm, setShowAddForm] = useState(false);
+  const [isFormVisible, setIsFormVisible] = useState(false);
 
-  const addRecipe = (newRecipe) => {
-    setRecipes([...recipes, newRecipe]);
-    setFilteredRecipes([...recipes, newRecipe]);
-    setShowAddForm(false);
-    setCurrentRecipeIndex(0);
+  const handleAddRecipe = (recipe) => {
+    console.log('Recipe added:', recipe);
+    setRecipes([...recipes, recipe]);
+    setFilteredRecipes([...recipes, recipe]);
+    setIsFormVisible(false);
     alert('Recipe Added!');
   };
 
   const editRecipe = (updatedRecipe) => {
-    setRecipes(recipes.map(recipe => recipe.id === updatedRecipe.id ? updatedRecipe : recipe));
-    setFilteredRecipes(filteredRecipes.map(recipe => recipe.id === updatedRecipe.id ? updatedRecipe : recipe));
+    const updatedRecipes = recipes.map(recipe =>
+      recipe.id === updatedRecipe.id ? updatedRecipe : recipe
+    );
+    setRecipes(updatedRecipes);
+    setFilteredRecipes(updatedRecipes);
+    alert('Recipe Updated!');
   };
 
   const deleteRecipe = (id) => {
-    setRecipes(recipes.filter(recipe => recipe.id !== id));
-    setFilteredRecipes(filteredRecipes.filter(recipe => recipe.id !== id));
+    const updatedRecipes = recipes.filter(recipe => recipe.id !== id);
+    setRecipes(updatedRecipes);
+    setFilteredRecipes(updatedRecipes);
     setCurrentRecipeIndex(prevIndex => (prevIndex === recipes.length - 1 ? prevIndex - 1 : prevIndex));
   };
 
@@ -74,7 +79,8 @@ const App = () => {
 
   const handleSearchClick = () => {
     const results = recipes.filter(recipe =>
-      recipe.name.toLowerCase().includes(searchQuery.toLowerCase()));
+      recipe.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
     if (results.length === 0) {
       alert('Recipe Not Found/Added Yet.');
     }
@@ -99,20 +105,23 @@ const App = () => {
       <h1>Recipe Book</h1>
       <div className="buttons-container">
         <div className="search-container">
-          <input type="text" placeholder="Search recipes" 
+          <input type="text" placeholder="Search recipes"
             value={searchQuery} onChange={handleSearchChange}
             className="search-input"/>
           <button className="search-button" onClick={handleSearchClick}>Search</button>
         </div>
+        <button onClick={() => setIsFormVisible(true)}>Add New Recipe</button>
+        {isFormVisible && (
+          <AddRecipeForm onAdd={handleAddRecipe} onDismiss={() => setIsFormVisible(false)}/>
+        )}
         <button onClick={previousRecipe} disabled={currentRecipeIndex === 0}>Back</button>
         <button onClick={nextRecipe} disabled={currentRecipeIndex === filteredRecipes.length - 1}>Next</button>
-        <button onClick={() => setShowAddForm(true)}>Add Recipe</button>
       </div>
-      {showAddForm && <AddRecipeForm onAdd={addRecipe} />}
-      {filteredRecipes.length > 0 && !showAddForm && (
+      {filteredRecipes.length > 0 && !isFormVisible && (
         <Recipe
           recipe={filteredRecipes[currentRecipeIndex]}
-          onEdit={editRecipe} onDelete={deleteRecipe}/>
+          onEdit={editRecipe}
+          onDelete={deleteRecipe}/>
       )}
     </div>
   );

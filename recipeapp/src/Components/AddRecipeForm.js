@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './AddRecipeForm.css';
 
-const AddRecipeForm = ({ onAdd }) => {
+const AddRecipeForm = ({ onAdd, onDismiss }) => {
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
   const [ingredients, setIngredients] = useState([{ quantity: '', item: '' }]);
@@ -28,6 +28,16 @@ const AddRecipeForm = ({ onAdd }) => {
     setInstructions([...instructions, '']);
   };
 
+  const handleRemoveIngredient = (index) => {
+    const updatedIngredients = ingredients.filter((_, i) => i !== index);
+    setIngredients(updatedIngredients);
+  };
+
+  const handleRemoveInstruction = (index) => {
+    const updatedInstructions = instructions.filter((_, i) => i !== index);
+    setInstructions(updatedInstructions);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.trim() && image.trim()) {
@@ -44,7 +54,7 @@ const AddRecipeForm = ({ onAdd }) => {
       setIngredients([{ quantity: '', item: '' }]);
       setInstructions(['']);
     } else {
-      alert('Please enter both a name and an image URL for the recipe.');
+      alert('Enter a name and an image URL for the recipe.');
     }
   };
 
@@ -78,6 +88,9 @@ const AddRecipeForm = ({ onAdd }) => {
             value={ingredient.item}
             onChange={(e) => handleIngredientChange(index, 'item', e.target.value)}
           />
+          <button type="button" onClick={() => handleRemoveIngredient(index)}>
+            Remove
+          </button>
         </div>
       ))}
       <button type="button" onClick={handleAddIngredient}>
@@ -85,18 +98,23 @@ const AddRecipeForm = ({ onAdd }) => {
       </button>
       <h3>Instructions</h3>
       {instructions.map((instruction, index) => (
-        <input
-          key={index}
-          type="text"
-          placeholder="Instruction"
-          value={instruction}
-          onChange={(e) => handleInstructionChange(index, e.target.value)}
-        />
+        <div key={index} className="instruction">
+          <input
+            type="text"
+            placeholder="Instruction"
+            value={instruction}
+            onChange={(e) => handleInstructionChange(index, e.target.value)}
+          />
+          <button type="button" onClick={() => handleRemoveInstruction(index)}>
+            Remove
+          </button>
+        </div>
       ))}
       <button type="button" onClick={handleAddInstruction}>
         Add Instruction
       </button>
       <button type="submit">Save Recipe</button>
+      <button type="button" onClick={onDismiss}>Dismiss</button>
     </form>
   );
 };

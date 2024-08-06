@@ -1,7 +1,3 @@
-.app {
-  text-align: center;
-}
-
 .recipe {
   border: 1px solid #ccc;
   padding: 16px;
@@ -10,8 +6,7 @@
   max-width: 400px;
   display: inline-block;
   vertical-align: top;
-  transition: all 0.3s ease;
-}
+  transition: all 0.3s ease;}
 
 .recipe:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -28,7 +23,109 @@
   padding: 0;
   list-style-position: inside;}
 
+.recipe ul li, .recipe ol li {
+  padding: 4px 0;
+  color: #333;}
+
+.recipe button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  margin: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;}
+
+.recipe button:hover {
+  background-color: #0056b3;}
+
+.recipe h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #333;}
+
+.recipe h3 {
+  margin-bottom: 0;
+  font-size: 1.2em;
+  color: #666;}
+
+.ingredient-edit {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;}
+
+.add-ingredient, .add-instruction {
+  margin-top: 16px;}
+
+.add-ingredient input, .add-instruction input {
+  margin-right: 8px;}
+
+.add-ingredient button, .add-instruction button {
+  margin-left: 8px;
+  background-color: #28a745;}
+
+.add-ingredient button:hover, .add-instruction button:hover {
+  background-color: #218838;}
+
 @media (max-width: 768px) {
   .recipe {
     max-width: 100%;
-    margin: 8px;}}
+    margin: 8px;}
+
+  .recipe img {
+    max-width: 100%;
+    height: auto;
+  }}
+
+input[type="text"] {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 1em;
+  width: calc(100% - 18px);
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;}
+
+
+input[type="text"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+.ingredient-edit input {
+  flex: 1;
+}
+
+.add-ingredient input, .add-instruction input {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 1em;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.add-ingredient input::placeholder, .add-instruction input::placeholder {
+  color: #aaa;
+}
+
+.add-ingredient button, .add-instruction button {
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-ingredient button:disabled, .add-instruction button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
