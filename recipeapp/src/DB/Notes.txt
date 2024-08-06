@@ -1,0 +1,171 @@
+Recipe.js
+import React, { useState } from 'react';
+
+Imports React and useState from the React library to manage state in the component.
+function Recipe({ recipe, onEdit, onDelete }) {
+
+Defines the Recipe component as a function. It takes recipe, onEdit, and onDelete as props.
+const [showAllInstructions, setShowAllInstructions] = useState(false);
+
+Initializes a state variable to control whether all instructions are shown.
+const [editable, setEditable] = useState(false);
+
+Initializes a state variable to control whether the recipe is in edit mode.
+const [editedRecipe, setEditedRecipe] = useState(recipe);
+
+Initializes a state variable to hold the recipe being edited.
+const [newIngredient, setNewIngredient] = useState('');
+
+Initializes a state variable for the new ingredient being added.
+const [newInstruction, setNewInstruction] = useState('');
+
+Initializes a state variable for the new instruction being added.
+const handleEdit = () => { ... };
+
+Defines a function to toggle edit mode and save changes when exiting edit mode.
+const handleChange = (e) => { ... };
+
+Defines a function to update the recipe details based on input changes.
+const handleInstructionChange = (index, e) => { ... };
+
+Defines a function to update a specific instruction in the recipe.
+const handleIngredientChange = (index, e) => { ... };
+
+Defines a function to update a specific ingredient in the recipe.
+const handleAddIngredient = () => { ... };
+
+Defines a function to add a new ingredient to the recipe.
+const handleAddInstruction = () => { ... };
+
+Defines a function to add a new instruction to the recipe.
+return ( <div className="recipe"> ... </div> );
+
+Renders the component UI, including input fields if in edit mode and recipe details otherwise.
+<button onClick={handleEdit}>{editable ? 'Save' : 'Edit'}</button>
+
+A button to toggle between edit and view modes.
+<button onClick={() => onDelete(recipe.id)}>Delete</button>
+
+A button to delete the recipe.
+
+AddRecipeForm
+function AddRecipeForm({ onAdd, onDismiss }) {
+
+Defines the AddRecipeForm component. It takes onAdd and onDismiss as props.
+const [name, setName] = useState('');
+
+Initializes state for the recipe name.
+const [image, setImage] = useState('');
+
+Initializes state for the image URL.
+const [ingredients, setIngredients] = useState([]);
+
+Initializes state for the list of ingredients.
+const [instructions, setInstructions] = useState([]);
+
+Initializes state for the list of instructions.
+const handleIngredientChange = (index, e) => { ... };
+
+Updates a specific ingredient in the list based on input changes.
+const handleInstructionChange = (index, e) => { ... };
+
+Updates a specific instruction in the list based on input changes.
+const handleAddIngredient = () => { ... };
+
+Adds a new blank ingredient to the list.
+const handleAddInstruction = () => { ... };
+
+Adds a new blank instruction to the list.
+const handleRemoveIngredient = (index) => { ... };
+
+Removes a specific ingredient from the list.
+const handleRemoveInstruction = (index) => { ... };
+
+Removes a specific instruction from the list.
+const handleSubmit = (e) => { ... };
+
+Prevents default form submission, creates a new recipe object, and calls onAdd to pass the recipe data to the parent component.
+return ( <div className="add-recipe-form"> ... </div> );
+
+Renders the form with input fields for recipe details, ingredients, and instructions.
+<button type="submit">Submit</button>
+
+Submits the form to add a new recipe.
+<button type="button" onClick={onDismiss}>Dismiss</button>
+
+Closes the form without adding a new recipe.
+import React, { useState, useEffect } from 'react';
+
+Imports React and hooks for state management and side effects.
+import Recipe from './Recipe';
+
+Imports the Recipe component.
+import AddRecipeForm from './AddRecipeForm';
+
+Imports the AddRecipeForm component.
+import data from './DB.json';
+
+Imports recipe data from a JSON file.
+function App() {
+
+Defines the App component.
+const [recipes, setRecipes] = useState([]);
+
+Initializes state for the list of recipes.
+const [currentRecipeIndex, setCurrentRecipeIndex] = useState(0);
+
+Initializes state for the index of the currently displayed recipe.
+const [loading, setLoading] = useState(true);
+
+Initializes state for the loading status.
+const [error, setError] = useState(null);
+
+Initializes state for error handling.
+const [searchQuery, setSearchQuery] = useState('');
+
+Initializes state for the search query.
+const [filteredRecipes, setFilteredRecipes] = useState([]);
+
+Initializes state for the filtered list of recipes based on the search query.
+const [isFormVisible, setIsFormVisible] = useState(false);
+
+Initializes state to control the visibility of the add recipe form.
+useEffect(() => { ... }, []);
+
+Fetches recipe data when the component mounts. Sets recipes and handles errors.
+useEffect(() => { ... }, [searchQuery, recipes]);
+
+Filters recipes based on the search query and updates filteredRecipes.
+const handleAddRecipe = (recipe) => { ... };
+
+Adds a new recipe to the list and hides the add recipe form.
+const editRecipe = (editedRecipe) => { ... };
+
+Updates an existing recipe in the list.
+const deleteRecipe = (id) => { ... };
+
+Deletes a recipe from the list.
+const nextRecipe = () => { ... };
+
+Moves to the next recipe in the filtered list.
+const previousRecipe = () => { ... };
+
+Moves to the previous recipe in the filtered list.
+const handleSearchChange = (e) => { ... };
+
+Updates the search query state based on input changes.
+const handleSearchClick = () => { ... };
+
+Handles search clicks (not used in this implementation because search is handled by useEffect).
+const handleFormDismiss = () => { ... };
+
+Closes the add recipe form.
+return ( <div className="app"> ... </div> );
+
+Renders the main app UI, including search input, add recipe button, and the currently displayed recipe.
+<Recipe recipe={filteredRecipes[currentRecipeIndex]} onEdit={editRecipe} onDelete={deleteRecipe} />
+
+Displays the current recipe with edit and delete functionalities.
+<AddRecipeForm onAdd={handleAddRecipe} onDismiss={handleFormDismiss} />
+
+Conditionally renders the add recipe form if visible.
