@@ -13,7 +13,7 @@
         {"item": "egg", "quantity": "1"},
         {"item": "vanilla extract", "quantity": "1 teaspoon"},
         {
-          "item": "Optional/Extra ingredients",
+          "item": "Add Something Else for Extra Flair",
           "items": [
             {"item": "blueberries", "quantity": "1 cup"},
             {"item": "chocolate chips", "quantity": "1 cup"},
