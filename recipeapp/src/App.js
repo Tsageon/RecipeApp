@@ -104,8 +104,8 @@ const App = () => {
     <div className="app">
       <div className="logo-container">
         <video className="logo-video" autoPlay loop muted>
-          <source src="https://cdnl.iconscout.com/lottie/premium/preview-watermark/meal-8820888-7140050.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
+          <source src="https://cdnl.iconscout.com/lottie/premium/preview-watermark/meal-8820888-7140050.mp4" type="video/mp4"/>
+          Need a better browser.
         </video>
       </div>
       <h1>Recipe Book</h1>
