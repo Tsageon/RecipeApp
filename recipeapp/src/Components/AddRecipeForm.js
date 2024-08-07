@@ -71,17 +71,13 @@ const AddRecipeForm = ({ onAdd, onDismiss }) => {
         type="text"
         placeholder="Image URL"
         value={image}
-        onChange={(e) => setImage(e.target.value)}
-      />
+        onChange={(e) => setImage(e.target.value)}/>
       <h3>Ingredients</h3>
       {ingredients.map((ingredient, index) => (
         <div key={index} className="ingredient">
-          <input
-            type="text"
-            placeholder="Quantity"
+          <input type="text" placeholder="Quantity"
             value={ingredient.quantity}
-            onChange={(e) => handleIngredientChange(index, 'quantity', e.target.value)}
-          />
+            onChange={(e) => handleIngredientChange(index, 'quantity', e.target.value)}/>
           <input
             type="text"
             placeholder="Item"

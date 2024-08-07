@@ -68,15 +68,7 @@
 .add-ingredient button:hover, .add-instruction button:hover {
   background-color: #218838;}
 
-@media (max-width: 768px) {
-  .recipe {
-    max-width: 100%;
-    margin: 8px;}
-
-  .recipe img {
-    max-width: 100%;
-    height: auto;
-  }}
+    
 
 input[type="text"] {
   border: 1px solid #ddd;

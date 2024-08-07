@@ -13,10 +13,10 @@ const [editable, setEditable] = useState(false);
 Initializes a state variable to control whether the recipe is in edit mode.
 const [editedRecipe, setEditedRecipe] = useState(recipe);
 
-Initializes a state variable to hold the recipe being edited.
+Initializes a state variable(empty) to hold the recipe being edited.
 const [newIngredient, setNewIngredient] = useState('');
 
-Initializes a state variable for the new ingredient being added.
+Initializes a state variable(empty) for the new ingredient being added.
 const [newInstruction, setNewInstruction] = useState('');
 
 Initializes a state variable for the new instruction being added.
@@ -44,12 +44,13 @@ Renders the component UI, including input fields if in edit mode and recipe deta
 <button onClick={handleEdit}>{editable ? 'Save' : 'Edit'}</button>
 
 A button to toggle between edit and view modes.
-<button onClick={() => onDelete(recipe.id)}>Delete</button>
+
 
 A button to delete the recipe.
+<button onClick={() => onDelete(recipe.id)}>Delete</button>
 
 AddRecipeForm
-function AddRecipeForm({ onAdd, onDismiss }) {
+function AddRecipeForm({ onAdd, onDismiss }) {}
 
 Defines the AddRecipeForm component. It takes onAdd and onDismiss as props.
 const [name, setName] = useState('');
@@ -87,7 +88,7 @@ const handleSubmit = (e) => { ... };
 Prevents default form submission, creates a new recipe object, and calls onAdd to pass the recipe data to the parent component.
 return ( <div className="add-recipe-form"> ... </div> );
 
-Renders the form with input fields for recipe details, ingredients, and instructions.
+Renders the form with input fields for recipe details,ingredients, and instructions.
 <button type="submit">Submit</button>
 
 Submits the form to add a new recipe.
@@ -106,10 +107,10 @@ Imports the AddRecipeForm component.
 import data from './DB.json';
 
 Imports recipe data from a JSON file.
-function App() {
+function App() {}
 
 Defines the App component.
-const [recipes, setRecipes] = useState([]);
+const [recipes,setRecipes] = useState([]);
 
 Initializes state for the list of recipes.
 const [currentRecipeIndex, setCurrentRecipeIndex] = useState(0);
@@ -118,7 +119,7 @@ Initializes state for the index of the currently displayed recipe.
 const [loading, setLoading] = useState(true);
 
 Initializes state for the loading status.
-const [error, setError] = useState(null);
+const [error,  setError] = useState(null);
 
 Initializes state for error handling.
 const [searchQuery, setSearchQuery] = useState('');

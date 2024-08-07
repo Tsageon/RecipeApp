@@ -11,16 +11,8 @@
         {"item": "milk", "quantity": "1 cup"},
         {"item": "vegetable oil", "quantity": "1/2 cup"},
         {"item": "egg", "quantity": "1"},
-        {"item": "vanilla extract", "quantity": "1 teaspoon"},
-        {
-          "item": "Add Something Else for Extra Flair",
-          "items": [
-            {"item": "blueberries", "quantity": "1 cup"},
-            {"item": "chocolate chips", "quantity": "1 cup"},
-            {"item": "nuts", "quantity": "1/2 cup"}
-          ]
-        }
-      ],
+        {"item": "vanilla extract", "quantity": "1 teaspoon"}
+       ],
       "instructions": [
         "Preheat the oven to 400°F (200°C). Grease a muffin tin or line with paper liners.",
         "In a large bowl, whisk together the flour, sugar, baking powder, and salt.",
