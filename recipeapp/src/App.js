@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import Login from './Components/Login';
+import Register from './Components/Register';
 import Recipe from './Components/Recipe';
 import AddRecipeForm from './Components/AddRecipeForm';
-import './App.css'; 
+import './App.css';
 import { v4 as uuidv4 } from 'uuid';
 
 const App = () => {
@@ -12,6 +15,23 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [isFormVisible, setIsFormVisible] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (loggedInUser) {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('loggedInUser');
+    setIsAuthenticated(false);
+  };
 
   const handleAddRecipe = (recipe) => {
     console.log('Recipe added:', recipe);
@@ -101,35 +121,53 @@ const App = () => {
   }
 
   return (
-    <div className="app">
-      <div className="logo-container">
-        <video className="logo-video" autoPlay loop muted>
-          <source src="https://cdnl.iconscout.com/lottie/premium/preview-watermark/meal-8820888-7140050.mp4" type="video/mp4"/>
-          Need a better browser.
-        </video>
-      </div>
-      <h1>Recipe Book</h1>
-      <div className="buttons-container">
-        <div className="search-container">
-          <input type="text" placeholder="Search recipes"
-            value={searchQuery} onChange={handleSearchChange}
-            className="search-input"/>
-          <button className="search-button" onClick={handleSearchClick}>Search</button>
-        </div>
-        <button onClick={() => setIsFormVisible(true)}>Add New Recipe</button>
-        {isFormVisible && (
-          <AddRecipeForm onAdd={handleAddRecipe} onDismiss={() => setIsFormVisible(false)}/>
+    <Router>
+      <div className="app">
+        {isAuthenticated ? (
+          <>
+            <div className="logo-container">
+              <video className="logo-video" autoPlay loop muted>
+                <source src="https://cdnl.iconscout.com/lottie/premium/preview-watermark/meal-8820888-7140050.mp4" type="video/mp4" />
+                Need a better browser.
+              </video>
+            </div>
+            <h1>Recipe Book</h1>
+            <div className="buttons-container">
+              <button onClick={handleLogout}>Logout</button>
+              <div className="search-container">
+                <input
+                  type="text"
+                  placeholder="Search recipes"
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  className="search-input"
+                />
+                <button className="search-button" onClick={handleSearchClick}>Search</button>
+              </div>
+              <button onClick={() => setIsFormVisible(true)}>Add New Recipe</button>
+              {isFormVisible && (
+                <AddRecipeForm onAdd={handleAddRecipe} onDismiss={() => setIsFormVisible(false)} />
+              )}
+              <button onClick={previousRecipe} disabled={currentRecipeIndex === 0}>Back</button>
+              <button onClick={nextRecipe} disabled={currentRecipeIndex === filteredRecipes.length - 1}>Next</button>
+            </div>
+            {filteredRecipes.length > 0 && !isFormVisible && (
+              <Recipe
+                recipe={filteredRecipes[currentRecipeIndex]}
+                onEdit={editRecipe}
+                onDelete={deleteRecipe}
+              />
+            )}
+          </>
+        ) : (
+          <Routes>
+            <Route path="/login" element={<Login onLogin={handleLogin} />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="*" element={<Navigate to="/login" />} />
+          </Routes>
         )}
-        <button onClick={previousRecipe} disabled={currentRecipeIndex === 0}>Back</button>
-        <button onClick={nextRecipe} disabled={currentRecipeIndex === filteredRecipes.length - 1}>Next</button>
       </div>
-      {filteredRecipes.length > 0 && !isFormVisible && (
-        <Recipe
-          recipe={filteredRecipes[currentRecipeIndex]}
-          onEdit={editRecipe}
-          onDelete={deleteRecipe}/>
-      )}
-    </div>
+    </Router>
   );
 };
 
