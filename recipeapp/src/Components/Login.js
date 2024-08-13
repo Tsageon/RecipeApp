@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import 'login.css'
+import './auth.css'; 
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -16,12 +16,12 @@ const Login = ({ onLogin }) => {
       localStorage.setItem('loggedInUser', JSON.stringify(user));
       onLogin();
     } else {
-      alert('Invalid username or password');
+      alert('Invalid Username or Password');
     }
   };
 
   return (
-    <div className="login-container">
+    <div className="auth-container">
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <input
@@ -29,18 +29,16 @@ const Login = ({ onLogin }) => {
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          required
-        />
+          required/>
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+          required/>
         <button type="submit">Login</button>
       </form>
-      <div className="register-link">
+      <div className="link-container">
         <p>New User? <Link to="/register">Register here</Link></p>
       </div>
     </div>

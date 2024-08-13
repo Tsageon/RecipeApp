@@ -46,90 +46,158 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
     if (newIngredient.quantity && newIngredient.item) {
       setEditedRecipe({
         ...editedRecipe,
-        ingredients: [...editedRecipe.ingredients, newIngredient],});
+        ingredients: [...editedRecipe.ingredients, newIngredient],
+      });
       setNewIngredient({ quantity: '', item: '' });
-      alert('Ingredient added!');
+      alert('Ingredient Added!');
     } else {
-      alert('Enter both quantity and item.');
-    }};
+      alert('Enter Both Quantity and Item.');
+    }
+  };
 
   const handleAddInstruction = () => {
     if (newInstruction) {
       setEditedRecipe({
         ...editedRecipe,
-        instructions: [...editedRecipe.instructions, newInstruction],});
+        instructions: [...editedRecipe.instructions, newInstruction],
+      });
       setNewInstruction('');
-      alert('Instruction added!');
+      alert('Instruction Added!');
     } else {
-      alert('Enter an instruction.');
-    }};
+      alert('Enter An Instruction.');
+    }
+  };
 
   return (
     <div className="recipe">
       {editable ? (
-        <input type="text" name="name"
-          value={editedRecipe.name} onChange={handleChange}/>
+        <input
+          type="text"
+          name="name"
+          value={editedRecipe.name}
+          onChange={handleChange}/>
       ) : (
         <h2>{recipe.name}</h2>
       )}
       {editable ? (
-        <input type="text" name="image"
-          value={editedRecipe.image} onChange={handleChange}/>
+        <input
+          type="text"
+          name="image"
+          value={editedRecipe.image}
+          onChange={handleChange}/>
       ) : (
         <img src={recipe.image} alt={recipe.name}/>
       )}
-      <h3>Ingredients:</h3>
-      <ul>
-        {editedRecipe.ingredients.map((ingredient, index) => (
-          <li key={index}>
-            {editable ? (
-              <div className="ingredient-edit">
-                <input type="text" name="item"
-                  value={ingredient.item} onChange={(e) => handleIngredientChange(index, e)}/>
-                <input type="text" name="quantity"
-                  value={ingredient.quantity} onChange={(e) => handleIngredientChange(index, e)}/>
-              </div>
-            ) : (
-              `${ingredient.quantity} of ${ingredient.item}`
-            )}
-          </li>
-        ))}
-      </ul>
-      {editable && (
-        <div className="add-ingredient">
-          <input type="text" placeholder="Quantity"
-            value={newIngredient.quantity} onChange={(e) => setNewIngredient({...newIngredient, quantity: e.target.value})}/>
-          <input type="text" placeholder="Item"
-            value={newIngredient.item} onChange={(e) => setNewIngredient({...newIngredient, item: e.target.value})}/>
-          <button onClick={handleAddIngredient}>Add Ingredient</button>
-        </div>
+
+      {editable ? (
+        <>
+          <input
+            type="text"
+            name="category"
+            placeholder="Category"
+            value={editedRecipe.category}
+            onChange={handleChange}/>
+          <input
+            type="text"
+            name="prepTime"
+            placeholder="Prep Time"
+            value={editedRecipe.prepTime}
+            onChange={handleChange}/>
+          <input
+            type="text"
+            name="servingTime"
+            placeholder="Serving Time"
+            value={editedRecipe.servingTime}
+            onChange={handleChange}/>
+          <input
+            type="number"
+            name="servings"
+            placeholder="Servings"
+            value={editedRecipe.servings}
+            onChange={handleChange}/>
+        </>
+      ) : (
+        <p>{recipe.category} | Prep: {recipe.prepTime} | Serve: {recipe.servingTime} | Servings: {recipe.servings}</p>
       )}
-      <h3>Instructions:</h3>
+
+      <h3>Ingredients</h3>
+      <ul>
+        {editable ? (
+          <>
+            {editedRecipe.ingredients.map((ingredient, index) => (
+              <li key={index}>
+                <input
+                  type="text"
+                  name="quantity"
+                  value={ingredient.quantity}
+                  onChange={(e) => handleIngredientChange(index, e)}
+                  placeholder="Quantity"/>
+                <input
+                  type="text"
+                  name="item"
+                  value={ingredient.item}
+                  onChange={(e) => handleIngredientChange(index, e)}
+                  placeholder="Item"/>
+              </li>
+            ))}
+            <button onClick={handleAddIngredient}>Add Ingredient</button>
+            <input
+              type="text"
+              value={newIngredient.quantity}
+              onChange={(e) => setNewIngredient({ ...newIngredient, quantity: e.target.value })}
+              placeholder="New Quantity"/>
+            <input
+              type="text"
+              value={newIngredient.item}
+              onChange={(e) => setNewIngredient({ ...newIngredient, item: e.target.value })}
+              placeholder="New Item"/>
+          </>
+        ) : (
+          editedRecipe.ingredients.map((ingredient, index) => (
+            <li key={index}>{ingredient.quantity} {ingredient.item}</li>
+          ))
+        )}
+      </ul>
+
+      <h3>Instructions</h3>
       <ol>
-        {editedRecipe.instructions.slice(0, showAllInstructions ? editedRecipe.instructions.length : 4).map((instruction, index) => (
-          <li key={index}>
-            {editable ? (
-              <input type="text" value={instruction} onChange={(e) => handleInstructionChange(index, e.target.value)}/>
-            ) : (
-              instruction
-            )}
-          </li>
-        ))}
+        {editable ? (
+          <>
+            {editedRecipe.instructions.map((instruction, index) => (
+              <li key={index}>
+                <textarea
+                  value={instruction}
+                  onChange={(e) => handleInstructionChange(index, e.target.value)}
+                  placeholder={`Instruction ${index + 1}`}/>
+              </li>
+            ))}
+            <button onClick={handleAddInstruction}>Add Instruction</button>
+            <input
+              type="text"
+              value={newInstruction}
+              onChange={(e) => setNewInstruction(e.target.value)}
+              placeholder="New Instruction"/>
+          </>
+        ) : (
+          editedRecipe.instructions.map((instruction, index) => (
+            <li key={index}>{instruction}</li>
+          ))
+        )}
       </ol>
-      {editedRecipe.instructions.length > 4 && (
+
+      <button onClick={handleEdit}>
+        {editable ? 'Save Changes' : 'Edit'}
+      </button>
+      <button onClick={() => onDelete(recipe.id)}>Delete</button>
+      {editable && (
+        <button onClick={() => setEditable(false)}>Cancel</button>
+      )}
+
+      {editable && (
         <button onClick={() => setShowAllInstructions(!showAllInstructions)}>
-          {showAllInstructions ? 'Read Less' : 'Read More'}
+          {showAllInstructions ? 'Show Less' : 'Read More'}
         </button>
       )}
-      {editable && (
-        <div className="add-instruction">
-          <input type="text" placeholder="New Instruction"
-            value={newInstruction} onChange={(e) => setNewInstruction(e.target.value)}/>
-          <button onClick={handleAddInstruction}>Add Instruction</button>
-        </div>
-      )}
-      <button onClick={handleEdit}>{editable ? 'Save' : 'Edit'}</button>
-      <button onClick={() => onDelete(recipe.id)}>Delete</button>
     </div>
   );
 };

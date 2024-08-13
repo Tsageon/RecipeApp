@@ -6,26 +6,32 @@
   max-width: 400px;
   display: inline-block;
   vertical-align: top;
-  transition: all 0.3s ease;}
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
 
 .recipe:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transform: translateY(-4px);}
+  transform: translateY(-4px);
+}
 
 .recipe img {
   width: 100%;
   height: auto;
-  border-radius: 8px;}
+  border-radius: 8px;
+}
 
 .recipe ul, .recipe ol {
   text-align: left;
   margin: 0 auto;
   padding: 0;
-  list-style-position: inside;}
+  list-style-position: inside;
+}
 
 .recipe ul li, .recipe ol li {
   padding: 4px 0;
-  color: #333;}
+  color: #333;
+}
 
 .recipe button {
   background-color: #007bff;
@@ -35,40 +41,47 @@
   margin: 4px;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;}
+  transition: background-color 0.3s ease;
+}
 
 .recipe button:hover {
-  background-color: #0056b3;}
+  background-color: #0056b3;
+}
 
 .recipe h2 {
   margin-top: 0;
   font-size: 1.5em;
-  color: #333;}
+  color: #333;
+}
 
 .recipe h3 {
   margin-bottom: 0;
   font-size: 1.2em;
-  color: #666;}
+  color: #666;
+}
 
 .ingredient-edit {
   display: flex;
   gap: 8px;
-  margin-bottom: 8px;}
+  margin-bottom: 8px;
+}
 
 .add-ingredient, .add-instruction {
-  margin-top: 16px;}
+  margin-top: 16px;
+}
 
 .add-ingredient input, .add-instruction input {
-  margin-right: 8px;}
+  margin-right: 8px;
+}
 
 .add-ingredient button, .add-instruction button {
   margin-left: 8px;
-  background-color: #28a745;}
+  background-color: #28a745;
+}
 
 .add-ingredient button:hover, .add-instruction button:hover {
-  background-color: #218838;}
-
-    
+  background-color: #218838;
+}
 
 input[type="text"] {
   border: 1px solid #ddd;
@@ -77,8 +90,8 @@ input[type="text"] {
   font-size: 1em;
   width: calc(100% - 18px);
   box-sizing: border-box;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;}
-
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
 input[type="text"]:focus {
   border-color: #007bff;

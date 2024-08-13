@@ -3,6 +3,10 @@
     {
       "name": "Regular Muffins",
       "image": "https://media.gettyimages.com/id/182441598/photo/pumpkin-muffins.jpg?s=2048x2048&w=gi&k=20&c=Bc5zqKslhSWBK5KuSK-g4dWhG7hSMehHBteIJM1T1BE=",
+      "category": "Dessert",
+      "prepTime": "15 minutes",
+      "servingTime": "20 minutes",
+      "servings": "12 muffins",
       "ingredients": [
         {"item": "all-purpose flour", "quantity": "2 cups"},
         {"item": "sugar", "quantity": "1 cup"},
@@ -12,7 +16,7 @@
         {"item": "vegetable oil", "quantity": "1/2 cup"},
         {"item": "egg", "quantity": "1"},
         {"item": "vanilla extract", "quantity": "1 teaspoon"}
-       ],
+      ],
       "instructions": [
         "Preheat the oven to 400°F (200°C). Grease a muffin tin or line with paper liners.",
         "In a large bowl, whisk together the flour, sugar, baking powder, and salt.",
@@ -27,6 +31,10 @@
     {
       "name": "Chocolate Cake",
       "image": "https://t4.ftcdn.net/jpg/03/24/94/65/240_F_324946540_nMTSS1bf6Z7U9le1TNgGrws4vOwRJbPw.jpg",
+      "category": "Dessert",
+      "prepTime": "20 minutes",
+      "servingTime": "35 minutes",
+      "servings": "8 servings",
       "ingredients": [
         {"item": "all-purpose flour", "quantity": "1 and 3/4 cups"},
         {"item": "granulated sugar", "quantity": "2 cups"},
@@ -54,6 +62,10 @@
     {
       "name": "Sardine Sandwich",
       "image": "https://www.shutterstock.com/shutterstock/photos/186069461/display_1500/stock-photo-sprats-sandwich-on-white-plate-186069461.jpg",
+      "category": "Lunch",
+      "prepTime": "10 minutes",
+      "servingTime": "5 minutes",
+      "servings": "1 sandwich",
       "ingredients": [
         {"item": "canned sardines", "quantity": "1 can"},
         {"item": "bread", "quantity": "2 slices"},
@@ -78,6 +90,10 @@
     {
       "name": "Beef Jerky",
       "image": "https://media.istockphoto.com/id/504820137/photo/dried-peppered-beef-jerky.jpg?s=1024x1024&w=is&k=20&c=5E_kuMkUzbD5GaIpcfK1J8zCt4nfpxlSbaVpawtVAoY=",
+      "category": "Snack",
+      "prepTime": "15 minutes",
+      "servingTime": "4 hours",
+      "servings": "Makes about 2 cups",
       "ingredients": [
         {"item": "beef (flank steak or top round)", "quantity": "1 pound"},
         {"item": "soy sauce", "quantity": "1/4 cup"},
@@ -104,6 +120,10 @@
     {
       "name": "Fried Rice",
       "image": "https://media.istockphoto.com/id/945606006/photo/chicken-fried-rice.jpg?s=1024x1024&w=is&k=20&c=vPcHn5C5XvnaWv9Ju4KtUOBzgXX4mYKDAy3AE2OhzC0=",
+      "category": "Main Course",
+      "prepTime": "10 minutes",
+      "servingTime": "10 minutes",
+      "servings": "4 servings",
       "ingredients": [
         {"item": "cooked rice", "quantity": "4 cups"},
         {"item": "vegetable oil", "quantity": "2 tablespoons"},

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './Components/Login';
 import Register from './Components/Register';
@@ -16,25 +16,29 @@ const App = () => {
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
   useEffect(() => {
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    if (loggedInUser) {
+    const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (storedUser) {
       setIsAuthenticated(true);
+      setLoggedInUser(storedUser);
     }
   }, []);
 
   const handleLogin = () => {
+    const user = JSON.parse(localStorage.getItem('loggedInUser'));
+    setLoggedInUser(user);
     setIsAuthenticated(true);
   };
 
   const handleLogout = () => {
     localStorage.removeItem('loggedInUser');
+    setLoggedInUser(null);
     setIsAuthenticated(false);
   };
 
   const handleAddRecipe = (recipe) => {
-    console.log('Recipe added:', recipe);
     setRecipes([...recipes, recipe]);
     setFilteredRecipes([...recipes, recipe]);
     setIsFormVisible(false);
@@ -132,38 +136,45 @@ const App = () => {
               </video>
             </div>
             <h1>Recipe Book</h1>
-            <div className="buttons-container">
-              <button onClick={handleLogout}>Logout</button>
-              <div className="search-container">
-                <input
-                  type="text"
-                  placeholder="Search recipes"
-                  value={searchQuery}
-                  onChange={handleSearchChange}
-                  className="search-input"
-                />
-                <button className="search-button" onClick={handleSearchClick}>Search</button>
-              </div>
-              <button onClick={() => setIsFormVisible(true)}>Add New Recipe</button>
-              {isFormVisible && (
-                <AddRecipeForm onAdd={handleAddRecipe} onDismiss={() => setIsFormVisible(false)} />
+            <div className="user-info">
+              {loggedInUser ? (
+                <p>Welcome, {loggedInUser.username}!</p>
+              ) : (
+                <p>Loading user Information...</p>
               )}
-              <button onClick={previousRecipe} disabled={currentRecipeIndex === 0}>Back</button>
-              <button onClick={nextRecipe} disabled={currentRecipeIndex === filteredRecipes.length - 1}>Next</button>
             </div>
+            <div className="header-buttons">
+              <button onClick={handleLogout}>Logout</button>
+              <button onClick={() => setIsFormVisible(true)}>Add New Recipe</button>
+            </div>
+            <div className="search-container">
+              <input
+                type="text"
+                placeholder="Search recipes"
+                value={searchQuery}
+                onChange={handleSearchChange}
+                className="search-input"/>
+              <button className="search-button" onClick={handleSearchClick}>Search</button>
+            </div>
+            {isFormVisible && (
+              <AddRecipeForm onAdd={handleAddRecipe} onDismiss={() => setIsFormVisible(false)}/>
+            )}
             {filteredRecipes.length > 0 && !isFormVisible && (
               <Recipe
                 recipe={filteredRecipes[currentRecipeIndex]}
                 onEdit={editRecipe}
-                onDelete={deleteRecipe}
-              />
+                onDelete={deleteRecipe}/>
             )}
+            <div className="pagination-buttons">
+              <button onClick={previousRecipe} disabled={currentRecipeIndex === 0}>Back</button>
+              <button onClick={nextRecipe} disabled={currentRecipeIndex === filteredRecipes.length - 1}>Next</button>
+            </div>
           </>
         ) : (
           <Routes>
-            <Route path="/login" element={<Login onLogin={handleLogin} />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="*" element={<Navigate to="/login" />} />
+            <Route path="/login" element={<Login onLogin={handleLogin}/>}/>
+            <Route path="/register" element={<Register onRegister={handleLogin}/>}/>
+            <Route path="*" element={<Navigate to="/login" />}/>
           </Routes>
         )}
       </div>
