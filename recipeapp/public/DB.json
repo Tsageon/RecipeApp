@@ -118,6 +118,42 @@
       ]
     },
     {
+      "name": "Chicken Fajitas",
+      "image": "https://www.shutterstock.com/shutterstock/photos/1705135831/display_1500/stock-photo-traditional-mexican-chicken-fajitas-on-dark-background-1705135831.jpg",
+      "category": "Main Course",
+      "prepTime": "15 minutes",
+      "servingTime": "20 minutes",
+      "servings": "4",
+      "ingredients":[
+      {"item":"boneless,skinless chicken breasts or thighs", "quantity":"680g"},
+      {"item":"Bell peppers", "quantity":"3"},
+      {"item":"Large onion", "quantity":"1"},
+      {"item":"Olive oil", "quantity":"2 tablespoons"},
+      {"item":"Chili powder", "quantity":"2 teaspoons"},
+      {"item":"Paprika", "quantity":"1 teaspoon of"},
+      {"item":"Ground cumin", "quantity":" 1 teaspoon of"},
+      {"item":"Garlic powder", "quantity":"1 teaspoon of"},
+      {"item":"Onion powder", "quantity":"1 teaspoon of"},
+      {"item":"Dried oregano", "quantity":"1/2 teaspoon of"},
+      {"item":"Salt", "quantity":"1/2 teaspoon of"},
+      {"item":"Black peppers", "quantity":"1/4 teaspoon of"},
+      {"item":"Crushed Red pepper flakes ", "quantity":"1/4 teaspoon of"}
+      ],
+      "instructions":[
+        "Cut the chicken into thin strips.",
+        "In a large bowl, combine the chili powder, paprika, ground cumin, garlic powder, onion powder, dried oregano, salt, black pepper, and crushed red pepper flakes",
+        "Add the sliced chicken to the bowl and drizzle with olive oil and lime juice. Toss until the chicken is evenly coated with the spice mixture.",
+        "Cover and let the chicken marinate for at least 30 minutes (you can refrigerate it for up to 2 hours for more flavor).",
+        "Heat a large skillet or cast-iron pan over medium-high heat. Once hot, add the marinated chicken strips in a single layer.",
+        "Cook the chicken for 5-7 minutes, stirring occasionally, until it's fully cooked and has a nice sear. Remove the chicken from the pan and set aside.",
+        "In the same skillet, add a little more olive oil if needed. Add the sliced bell peppers and onions.",
+        "Fry the vegetables quickly with a little hot fat for about 5-7 minutes, until they are slightly softened and have some charred edges.",
+        "Return the cooked chicken to the skillet with the vegetables. Toss everything together and cook for an additional 2-3 minutes to let the flavors meld.",
+        "Warm the tortillas in a dry skillet or directly over a gas flame until slightly charred.",
+        "Serve the chicken and vegetables with the tortillas and your choice of toppings."
+      ]
+    },
+    {
       "name": "Fried Rice",
       "image": "https://media.istockphoto.com/id/945606006/photo/chicken-fried-rice.jpg?s=1024x1024&w=is&k=20&c=vPcHn5C5XvnaWv9Ju4KtUOBzgXX4mYKDAy3AE2OhzC0=",
       "category": "Main Course",

@@ -7,9 +7,11 @@ import AddRecipeForm from './Components/AddRecipeForm';
 import './App.css';
 import { v4 as uuidv4 } from 'uuid';
 
+const RECIPES_PER_PAGE = 3;
+
 const App = () => {
   const [recipes, setRecipes] = useState([]);
-  const [currentRecipeIndex, setCurrentRecipeIndex] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -17,6 +19,8 @@ const App = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const [categories, setCategories] = useState([]);
+  const [showCategories, setShowCategories] = useState(false);
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -58,18 +62,20 @@ const App = () => {
     const updatedRecipes = recipes.filter(recipe => recipe.id !== id);
     setRecipes(updatedRecipes);
     setFilteredRecipes(updatedRecipes);
-    setCurrentRecipeIndex(prevIndex => (prevIndex === recipes.length - 1 ? prevIndex - 1 : prevIndex));
-  };
-
-  const nextRecipe = () => {
-    if (currentRecipeIndex < filteredRecipes.length - 1) {
-      setCurrentRecipeIndex(currentRecipeIndex + 1);
+    if (currentPage > Math.ceil(updatedRecipes.length / RECIPES_PER_PAGE)) {
+      setCurrentPage(Math.ceil(updatedRecipes.length / RECIPES_PER_PAGE));
     }
   };
 
-  const previousRecipe = () => {
-    if (currentRecipeIndex > 0) {
-      setCurrentRecipeIndex(currentRecipeIndex - 1);
+  const nextRecipePage = () => {
+    if (currentPage < Math.ceil(filteredRecipes.length / RECIPES_PER_PAGE)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const previousRecipePage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
     }
   };
 
@@ -88,6 +94,7 @@ const App = () => {
         }));
         setRecipes(recipesWithIds);
         setFilteredRecipes(recipesWithIds);
+        setCategories([...new Set(recipesWithIds.map(recipe => recipe.category))]);
         setLoading(false);
       })
       .catch(error => {
@@ -109,7 +116,17 @@ const App = () => {
       alert('Recipe Not Found/Added Yet.');
     }
     setFilteredRecipes(results);
-    setCurrentRecipeIndex(0);
+    setCurrentPage(1);
+  };
+
+  const handleShowCategories = () => {
+    setShowCategories(!showCategories); 
+  };
+
+  const handleCategoryClick = (category) => {
+    const filtered = recipes.filter(recipe => recipe.category === category);
+    setFilteredRecipes(filtered);
+    setCurrentPage(1);
   };
 
   if (loading) {
@@ -124,57 +141,69 @@ const App = () => {
     return <div>No Recipes Available.</div>;
   }
 
+  const startIndex = (currentPage - 1) * RECIPES_PER_PAGE;
+  const currentRecipes = filteredRecipes.slice(startIndex, startIndex + RECIPES_PER_PAGE);
+
   return (
     <Router>
       <div className="app">
         {isAuthenticated ? (
           <>
-            <div className="logo-container">
-              <video className="logo-video" autoPlay loop muted>
-                <source src="https://cdnl.iconscout.com/lottie/premium/preview-watermark/meal-8820888-7140050.mp4" type="video/mp4" />
-                Need a better browser.
-              </video>
-            </div>
-            <h1>Recipe Book</h1>
+            <h1 className='heading'>Recipe Book</h1>
             <div className="user-info">
               {loggedInUser ? (
-                <p>Welcome, {loggedInUser.username}!</p>
+                <p>Welcome, {loggedInUser.email}!</p>
               ) : (
                 <p>Loading user Information...</p>
               )}
             </div>
             <div className="header-buttons">
-              <button onClick={handleLogout}>Logout</button>
+              <button className="logout-button" onClick={handleLogout}>Logout</button>
               <button onClick={() => setIsFormVisible(true)}>Add New Recipe</button>
             </div>
             <div className="search-container">
-              <input
-                type="text"
-                placeholder="Search recipes"
-                value={searchQuery}
-                onChange={handleSearchChange}
+              <input type="text" placeholder="Search recipes"
+                value={searchQuery} onChange={handleSearchChange}
                 className="search-input"/>
               <button className="search-button" onClick={handleSearchClick}>Search</button>
             </div>
+            <button className="categories-button" onClick={handleShowCategories}>
+              {showCategories ? 'Hide Categories' : 'Show Categories'}
+            </button>
+            {showCategories && ( 
+              <div className="category-list">
+                {categories.map((category, index) => (
+                  <button key={index} className="category-button" onClick={() => handleCategoryClick(category)}>
+                    {category}
+                  </button>
+                ))}
+              </div>
+            )}
             {isFormVisible && (
-              <AddRecipeForm onAdd={handleAddRecipe} onDismiss={() => setIsFormVisible(false)}/>
+              <AddRecipeForm onAdd={handleAddRecipe} onDismiss={() => setIsFormVisible(false)} />
             )}
             {filteredRecipes.length > 0 && !isFormVisible && (
-              <Recipe
-                recipe={filteredRecipes[currentRecipeIndex]}
-                onEdit={editRecipe}
-                onDelete={deleteRecipe}/>
+              <div>
+                {currentRecipes.map(recipe => (
+                  <Recipe
+                    key={recipe.id}
+                    recipe={recipe}
+                    onEdit={editRecipe}
+                    onDelete={deleteRecipe}/>
+                ))}
+              </div>
             )}
             <div className="pagination-buttons">
-              <button onClick={previousRecipe} disabled={currentRecipeIndex === 0}>Back</button>
-              <button onClick={nextRecipe} disabled={currentRecipeIndex === filteredRecipes.length - 1}>Next</button>
+              <button onClick={previousRecipePage} disabled={currentPage === 1}>Back</button>
+              <span>Page {currentPage} of {Math.ceil(filteredRecipes.length / RECIPES_PER_PAGE)}</span>
+              <button onClick={nextRecipePage} disabled={currentPage === Math.ceil(filteredRecipes.length / RECIPES_PER_PAGE)}>Next</button>
             </div>
           </>
         ) : (
           <Routes>
             <Route path="/login" element={<Login onLogin={handleLogin}/>}/>
             <Route path="/register" element={<Register onRegister={handleLogin}/>}/>
-            <Route path="*" element={<Navigate to="/login" />}/>
+            <Route path="*" element={<Navigate to="/login"/>}/>
           </Routes>
         )}
       </div>
