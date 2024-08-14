@@ -40,18 +40,18 @@ const Register = ({ onRegister }) => {
         <h2>Register</h2>
         <p><i>It's Always Pleasure To Have a New Connoisseur Of The Culinary Arts Join Us!</i></p> {/* Added welcome message */}
         <form onSubmit={handleRegister}>
-          <input type="text" placeholder="Username" 
+          <input className='username' type="text" placeholder="Username" 
             value={username} onChange={(e) => setUsername(e.target.value)} 
-            required />
+            required/>
           <input type="password" placeholder="Password" 
             value={password} onChange={(e) => setPassword(e.target.value)} 
-            required />
+            required/>
           <input type="email" placeholder="Email" 
             value={email} onChange={(e) => setEmail(e.target.value)} 
-            required />
+            required/>
           <input type="tel" placeholder="Phone Number (10 digits)" 
             value={phone} onChange={(e) => setPhone(e.target.value)} 
-            required maxLength={10} />
+            required maxLength={10}/>
           <button type="submit">Register</button>
         </form>
         <div className="link-container">

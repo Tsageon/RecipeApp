@@ -6,6 +6,7 @@ import Recipe from './Components/Recipe';
 import AddRecipeForm from './Components/AddRecipeForm';
 import './App.css';
 import { v4 as uuidv4 } from 'uuid';
+import UserProfile from './Components/userprofile';
 
 const RECIPES_PER_PAGE = 3;
 
