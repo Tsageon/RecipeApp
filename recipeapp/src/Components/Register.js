@@ -36,7 +36,9 @@ const Register = ({ onRegister }) => {
           <source src="https://cdnl.iconscout.com/lottie/premium/preview-watermark/meal-8820888-7140050.mp4" type="video/mp4" />
           Need a better browser.
         </video>
+        <p><b><i>Cooking With Tlhogi</i></b></p>
         <h2>Register</h2>
+        <p><i>It's Always Pleasure To Have a New Connoisseur Of The Culinary Arts Join Us!</i></p> {/* Added welcome message */}
         <form onSubmit={handleRegister}>
           <input type="text" placeholder="Username" 
             value={username} onChange={(e) => setUsername(e.target.value)} 

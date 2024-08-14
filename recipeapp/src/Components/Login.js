@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './auth.css'; 
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [userName, setUserName] = useState('');
+
+  useEffect(() => {
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (loggedInUser) {
+      setUserName(loggedInUser.name); 
+    }
+  }, []);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -14,11 +22,11 @@ const Login = ({ onLogin }) => {
 
     if (user) {
       localStorage.setItem('loggedInUser', JSON.stringify(user));
+      setUserName(user.name);
       onLogin();
     } else {
       alert('Invalid Email or Password');
-    }
-  };
+    }};
 
   return (
     <div className="auth-container">
@@ -27,6 +35,7 @@ const Login = ({ onLogin }) => {
         Need a better browser.
       </video>
       <h2>Login</h2>
+      <p><i>Welcome {userName ? `Back, ${userName}` : "to Cooking With Tlhogi"}!</i></p> {}
       <form onSubmit={handleLogin}>
         <input
           type="email"

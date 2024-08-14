@@ -216,8 +216,7 @@ h1 {
     
     .categories-button:active {
       background-color: #003d7a;
-      transform: scale(0.95);
-    }
+      transform: scale(0.95);}
 
     .category-button {
       background-color: grey;
