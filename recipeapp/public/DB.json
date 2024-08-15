@@ -1,6 +1,6 @@
 {
   "recipes": [
-    {
+   {
       "name": "Regular Muffins",
       "image": "https://media.gettyimages.com/id/182441598/photo/pumpkin-muffins.jpg?s=2048x2048&w=gi&k=20&c=Bc5zqKslhSWBK5KuSK-g4dWhG7hSMehHBteIJM1T1BE=",
       "category": "Dessert",
@@ -26,6 +26,86 @@
         "Spoon the batter into the prepared muffin tin, filling each cup about 2/3 full.",
         "Bake for 15-20 minutes, or until a toothpick inserted into the center of a muffin comes out clean.",
         "Let the muffins cool in the tin for 5 minutes, then transfer to a wire rack to cool completely."
+      ]
+    },
+    {
+      "name": "Savory Party Bread",
+      "image": "https://media.gettyimages.com/id/1373039737/photo/breads-for-snack.jpg?s=612x612&w=gi&k=20&c=oM43PklRWJy8k8ol4jFituVc-fkL1LIk9UWnwhmTAJY=",
+      "category": "Appetizer",
+      "prepTime": "10 minutes",
+      "servingTime": "30 minutes",
+      "servings": "8 servings",
+      "ingredients": [
+        {"item": "loaf of French bread", "quantity": "1"},
+        {"item": "butter", "quantity": "1/2 cup"},
+        {"item": "garlic cloves", "quantity": "4, minced"},
+        {"item": "Parmesan cheese", "quantity": "1/2 cup, grated"},
+        {"item": "cheddar cheese", "quantity": "1 cup, shredded"},
+        {"item": "fresh parsley", "quantity": "2 tablespoons, chopped"},
+        {"item": "salt", "quantity": "1/2 teaspoon"},
+        {"item": "black pepper", "quantity": "1/4 teaspoon"}
+      ],
+      "instructions": [
+        "Preheat your oven to 375°F (190°C).",
+        "Slice the French bread in half lengthwise.",
+        "In a bowl, mix together the butter, minced garlic, Parmesan cheese, cheddar cheese, parsley, salt, and pepper.",
+        "Spread the butter mixture evenly over the cut sides of the bread.",
+        "Place the bread on a baking sheet and bake for 15-20 minutes, or until the cheese is melted and bubbly.",
+        "Remove from the oven and let cool slightly before slicing into pieces and serving."
+      ]
+    },
+    {
+      "name": "Asparagus-Stuffed Chicken Breast",
+      "image": "https://media.gettyimages.com/id/1317623787/photo/asparagus-and-provolone-stuffed-chicken-breast.jpg?s=612x612&w=gi&k=20&c=8UJFGPeIkF0EsLoxf9GMDf6kSmeNkOyeSBBUn6cMLSQ=",
+      "category": "Dinner",
+      "prepTime": "15 minutes",
+      "servingTime": "25 minutes",
+      "servings": "4 servings",
+      "ingredients": [
+        {"item": "boneless, skinless chicken breasts", "quantity": "4"},
+        {"item": "asparagus spears", "quantity": "12"},
+        {"item": "cream cheese", "quantity": "4 ounces, softened"},
+        {"item": "Parmesan cheese", "quantity": "1/4 cup, grated"},
+        {"item": "garlic powder", "quantity": "1/2 teaspoon"},
+        {"item": "salt", "quantity": "1/2 teaspoon"},
+        {"item": "black pepper", "quantity": "1/4 teaspoon"},
+        {"item": "olive oil", "quantity": "2 tablespoons"}
+      ],
+      "instructions": [
+        "Preheat your oven to 375°F (190°C).",
+        "In a small bowl, mix together the cream cheese, Parmesan cheese, garlic powder, salt, and pepper.",
+        "Place the chicken breasts on a cutting board and make a pocket in each by slicing horizontally through the thickest part of the breast.",
+        "Stuff each pocket with 3 asparagus spears and a spoonful of the cream cheese mixture.",
+        "Secure the openings with toothpicks to prevent the filling from spilling out.",
+        "Rub the outside of each chicken breast with olive oil and season with additional salt and pepper if desired.",
+        "Place the stuffed chicken breasts in a baking dish and bake for 20-25 minutes, or until the chicken is cooked through and the internal temperature reaches 165°F (74°C).",
+        "Remove the toothpicks and serve hot."
+      ]
+    },
+    {
+      "name": "Homemade Pork Sausage Patties",
+      "image": "https://media.gettyimages.com/id/182187942/photo/breakfast.jpg?s=612x612&w=gi&k=20&c=C1-NVgLgIdVM4AqwEZ4666mNvnDVel4gpniiDRliJRo=",
+      "category": "Breakfast",
+      "prepTime": "10 minutes",
+      "servingTime": "15 minutes",
+      "servings": "4 servings",
+      "ingredients": [
+        {"item": "ground pork", "quantity": "1 pound"},
+        {"item": "salt", "quantity": "1 teaspoon"},
+        {"item": "black pepper", "quantity": "1/2 teaspoon"},
+        {"item": "ground sage", "quantity": "1 teaspoon"},
+        {"item": "thyme", "quantity": "1/2 teaspoon"},
+        {"item": "garlic powder", "quantity": "1/2 teaspoon"},
+        {"item": "onion powder", "quantity": "1/2 teaspoon"},
+        {"item": "red pepper flakes", "quantity": "1/4 teaspoon (optional)"}
+      ],
+      "instructions": [
+        "In a large bowl, combine the ground pork with salt, black pepper, sage, thyme, garlic powder, onion powder, and red pepper flakes (if using).",
+        "Mix until the spices are evenly distributed throughout the meat.",
+        "Form the mixture into 8 patties, about 1/2 inch thick.",
+        "Heat a skillet over medium heat and add a small amount of oil.",
+        "Cook the patties for 4-5 minutes per side, or until the internal temperature reaches 160°F (71°C) and the patties are browned and cooked through.",
+        "Remove from the skillet and let rest for a few minutes before serving."
       ]
     },
     {

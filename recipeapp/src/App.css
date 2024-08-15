@@ -195,7 +195,13 @@ h1 {
 .pagination-buttons button:active:enabled {
   transform: translateY(1px);}
   
+  .profile-button{
+    position: absolute;
+    top:10px;
+    right: 110px;
+  }
 .logout-button {
+  display: flex;
     position: absolute;
     top: 10px;
     right: 10px;}

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, Link } from 'react-router-dom';
 import Login from './Components/Login';
 import Register from './Components/Register';
 import Recipe from './Components/Recipe';
 import AddRecipeForm from './Components/AddRecipeForm';
+import UserProfile from './Components/UserProfile';
 import './App.css';
 import { v4 as uuidv4 } from 'uuid';
-import UserProfile from './Components/userprofile';
 
 const RECIPES_PER_PAGE = 3;
 
@@ -22,6 +22,7 @@ const App = () => {
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [categories, setCategories] = useState([]);
   const [showCategories, setShowCategories] = useState(false);
+  const [isProfileVisible, setIsProfileVisible] = useState(false); 
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -130,6 +131,12 @@ const App = () => {
     setCurrentPage(1);
   };
 
+
+  const handleDismiss = () => {
+    console.log('Dismiss button clicked');
+    setIsProfileVisible(false);
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -159,22 +166,31 @@ const App = () => {
               )}
             </div>
             <div className="header-buttons">
+              <button className='profile-button' onClick={() => setIsProfileVisible(true)}>
+                <Link to="/profile">User</Link>
+              </button>
               <button className="logout-button" onClick={handleLogout}>Logout</button>
               <button onClick={() => setIsFormVisible(true)}>Add New Recipe</button>
             </div>
             <div className="search-container">
-              <input type="text" placeholder="Search recipes"
-                value={searchQuery} onChange={handleSearchChange}
+              <input
+                type="text"
+                placeholder="Search recipes"
+                value={searchQuery}
+                onChange={handleSearchChange}
                 className="search-input"/>
               <button className="search-button" onClick={handleSearchClick}>Search</button>
             </div>
             <button className="categories-button" onClick={handleShowCategories}>
               {showCategories ? 'Hide Categories' : 'Show Categories'}
             </button>
-            {showCategories && ( 
+            {showCategories && (
               <div className="category-list">
                 {categories.map((category, index) => (
-                  <button key={index} className="category-button" onClick={() => handleCategoryClick(category)}>
+                  <button
+                    key={index}
+                    className="category-button"
+                    onClick={() => handleCategoryClick(category)}>
                     {category}
                   </button>
                 ))}
@@ -183,7 +199,10 @@ const App = () => {
             {isFormVisible && (
               <AddRecipeForm onAdd={handleAddRecipe} onDismiss={() => setIsFormVisible(false)} />
             )}
-            {filteredRecipes.length > 0 && !isFormVisible && (
+            {isProfileVisible && (
+              <UserProfile user={loggedInUser} onUpdate={handleLogin} onDismiss={handleDismiss} />
+            )}
+            {!isFormVisible && !isProfileVisible && (
               <div>
                 {currentRecipes.map(recipe => (
                   <Recipe
@@ -199,6 +218,10 @@ const App = () => {
               <span>Page {currentPage} of {Math.ceil(filteredRecipes.length / RECIPES_PER_PAGE)}</span>
               <button onClick={nextRecipePage} disabled={currentPage === Math.ceil(filteredRecipes.length / RECIPES_PER_PAGE)}>Next</button>
             </div>
+
+            <Routes>
+              <Route path="/profile" element={<UserProfile user={loggedInUser} onUpdate={handleLogin} onDismiss={handleDismiss} />} />
+            </Routes>
           </>
         ) : (
           <Routes>

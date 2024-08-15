@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Recipe.css';
 
 const Recipe = ({ recipe, onEdit, onDelete }) => {
@@ -7,6 +7,12 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
   const [editedRecipe, setEditedRecipe] = useState(recipe);
   const [newIngredient, setNewIngredient] = useState({ quantity: '', item: '' });
   const [newInstruction, setNewInstruction] = useState('');
+
+  useEffect(() => {
+    if (recipe) {
+      setEditedRecipe(recipe);
+    }
+  }, [recipe]);
 
   const handleEdit = () => {
     if (editable) {
@@ -68,6 +74,10 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
     }
   };
 
+  if (!recipe) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="recipe">
       {editable ? (
@@ -85,8 +95,7 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
           type="text"
           name="image"
           value={editedRecipe.image}
-          onChange={handleChange}
-        />
+          onChange={handleChange}/>
       ) : (
         <img src={recipe.image} alt={recipe.name} />
       )}
@@ -98,29 +107,25 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
             name="category"
             placeholder="Category"
             value={editedRecipe.category}
-            onChange={handleChange}
-          />
+            onChange={handleChange}/>
           <input
             type="text"
             name="prepTime"
             placeholder="Prep Time"
             value={editedRecipe.prepTime}
-            onChange={handleChange}
-          />
+            onChange={handleChange}/>
           <input
             type="text"
             name="servingTime"
             placeholder="Serving Time"
             value={editedRecipe.servingTime}
-            onChange={handleChange}
-          />
+            onChange={handleChange}/>
           <input
             type="number"
             name="servings"
             placeholder="Servings"
             value={editedRecipe.servings}
-            onChange={handleChange}
-          />
+            onChange={handleChange}/>
         </>
       ) : (
         <p>
@@ -139,15 +144,13 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
                   name="quantity"
                   value={ingredient.quantity}
                   onChange={(e) => handleIngredientChange(index, e)}
-                  placeholder="Quantity"
-                />
+                  placeholder="Quantity"/>
                 <input
                   type="text"
                   name="item"
                   value={ingredient.item}
                   onChange={(e) => handleIngredientChange(index, e)}
-                  placeholder="Item"
-                />
+                  placeholder="Item"/>
               </li>
             ))}
             <button onClick={handleAddIngredient}>Add Ingredient</button>
@@ -155,14 +158,12 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
               type="text"
               value={newIngredient.quantity}
               onChange={(e) => setNewIngredient({ ...newIngredient, quantity: e.target.value })}
-              placeholder="New Quantity"
-            />
+              placeholder="New Quantity"/>
             <input
               type="text"
               value={newIngredient.item}
               onChange={(e) => setNewIngredient({ ...newIngredient, item: e.target.value })}
-              placeholder="New Item"
-            />
+              placeholder="New Item"/>
           </>
         ) : (
           editedRecipe.ingredients.map((ingredient, index) => (
@@ -184,8 +185,7 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
                     <textarea
                       value={instruction}
                       onChange={(e) => handleInstructionChange(index, e.target.value)}
-                      placeholder={`Instruction ${index + 1}`}
-                    />
+                      placeholder={`Instruction ${index + 1}`}/>
                   </li>
                 ))}
                 <button onClick={handleAddInstruction}>Add Instruction</button>
@@ -193,8 +193,7 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
                   type="text"
                   value={newInstruction}
                   onChange={(e) => setNewInstruction(e.target.value)}
-                  placeholder="New Instruction"
-                />
+                  placeholder="New Instruction"/>
               </>
             ) : (
               editedRecipe.instructions.map((instruction, index) => (
