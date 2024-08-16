@@ -1,14 +1,14 @@
 .user-profile {
   padding: 20px;
   width: auto;
-  margin: 0 auto; /* Remove the margin to align it properly at the top */
+  margin: 0 auto; 
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
-  position: fixed; /* Fixed positioning to stay at the top */
-  top: 0; /* Align to the top of the page */
-  width: 100%; /* Full width for the profile section */
-  z-index: 1000; /* Ensure it stays above other content */
+  position: fixed; 
+  top: 0px; 
+  width: 100%; 
+  z-index: 1000;
 }
 
 .dismiss-button {
@@ -35,7 +35,9 @@
   color: #fff;
   font-size: 32px;
   overflow: hidden;
+  margin: 20px auto;
 }
+
 
 .profile-img {
   width: 100%;

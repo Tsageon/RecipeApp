@@ -21,8 +21,9 @@ const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [categories, setCategories] = useState([]);
-  const [showCategories, setShowCategories] = useState(false);
-  const [isProfileVisible, setIsProfileVisible] = useState(false); 
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [activeCategory, setActiveCategory] = useState(null); // Added state
+  const [isProfileVisible, setIsProfileVisible] = useState(false);
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -121,19 +122,22 @@ const App = () => {
     setCurrentPage(1);
   };
 
-  const handleShowCategories = () => {
-    setShowCategories(!showCategories); 
-  };
-
   const handleCategoryClick = (category) => {
-    const filtered = recipes.filter(recipe => recipe.category === category);
-    setFilteredRecipes(filtered);
-    setCurrentPage(1);
+    setSelectedCategory(category);
+    if (category === 'All') {
+      setFilteredRecipes(recipes);
+    } else {
+      setFilteredRecipes(recipes.filter((recipe) => recipe.category === category));
+    }
+  
+    if (activeCategory === category) {
+      setActiveCategory(null);
+    } else {
+      setActiveCategory(category);
+    }
   };
-
 
   const handleDismiss = () => {
-    console.log('Dismiss button clicked');
     setIsProfileVisible(false);
   };
 
@@ -181,21 +185,22 @@ const App = () => {
                 className="search-input"/>
               <button className="search-button" onClick={handleSearchClick}>Search</button>
             </div>
-            <button className="categories-button" onClick={handleShowCategories}>
-              {showCategories ? 'Hide Categories' : 'Show Categories'}
-            </button>
-            {showCategories && (
-              <div className="category-list">
-                {categories.map((category, index) => (
-                  <button
-                    key={index}
-                    className="category-button"
-                    onClick={() => handleCategoryClick(category)}>
-                    {category}
-                  </button>
-                ))}
-              </div>
-            )}
+            <div className="category-list">
+  <button
+    className={`category-button ${selectedCategory === 'All' ? 'selected' : ''}`}
+    onClick={() => handleCategoryClick('All')}
+  >
+    All
+  </button>
+  {categories.map((category) => (
+    <button
+      key={category}
+      className={`category-button ${selectedCategory === category ? 'selected' : ''}`}
+      onClick={() => handleCategoryClick(category)}>
+      {category}
+    </button>
+  ))}
+            </div>
             {isFormVisible && (
               <AddRecipeForm onAdd={handleAddRecipe} onDismiss={() => setIsFormVisible(false)} />
             )}

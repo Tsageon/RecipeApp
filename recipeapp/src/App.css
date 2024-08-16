@@ -8,6 +8,17 @@
 h1 {
   margin-bottom: 30px;
   color: #333;}
+  
+  .category-button.selected {
+    background-color: #0056b3;
+    color: white;
+    transform: scale(1.05);
+  }
+
+  .category-button:not(.selected) {
+    background-color: grey;
+    transform: scale(1);
+  }
 
 .heading{
   margin-top: 100px;}
