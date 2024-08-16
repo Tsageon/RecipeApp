@@ -21,16 +21,52 @@ const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [activeCategory, setActiveCategory] = useState(null); // Added state
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [activeCategory, setActiveCategory] = useState(null); 
   const [isProfileVisible, setIsProfileVisible] = useState(false);
 
+  // Load user authentication state
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
     if (storedUser) {
       setIsAuthenticated(true);
       setLoggedInUser(storedUser);
     }
+  }, []);
+
+  // Load recipes from localStorage or fetch from DB.json
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const storedRecipes = JSON.parse(localStorage.getItem('recipes'));
+        if (storedRecipes && storedRecipes.length > 0) {
+          setRecipes(storedRecipes);
+          setFilteredRecipes(storedRecipes);
+          setCategories([...new Set(storedRecipes.map(recipe => recipe.category))]);
+        } else {
+          const response = await fetch('/DB.json');
+          if (!response.ok) {
+            throw new Error('Network Response Error');
+          }
+          const data = await response.json();
+          const recipesWithIds = data.recipes.map(recipe => ({
+            ...recipe,
+            id: uuidv4(),
+          }));
+          localStorage.setItem('recipes', JSON.stringify(recipesWithIds));
+          setRecipes(recipesWithIds);
+          setFilteredRecipes(recipesWithIds);
+          setCategories([...new Set(recipesWithIds.map(recipe => recipe.category))]);
+        }
+      } catch (error) {
+        console.error('Error Fetching Data:', error);
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   const handleLogin = () => {
@@ -46,8 +82,15 @@ const App = () => {
   };
 
   const handleAddRecipe = (recipe) => {
-    setRecipes([...recipes, recipe]);
-    setFilteredRecipes([...recipes, recipe]);
+    if (!recipe.name || !recipe.image) {
+      alert('Recipe must have,name and an image URL.');
+      return;
+    }
+    const storedRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
+    const updatedRecipes = [...storedRecipes, { ...recipe, id: uuidv4() }];
+    localStorage.setItem('recipes', JSON.stringify(updatedRecipes));
+    setRecipes(updatedRecipes);
+    setFilteredRecipes(updatedRecipes);
     setIsFormVisible(false);
     alert('Recipe Added!');
   };
@@ -58,6 +101,7 @@ const App = () => {
     );
     setRecipes(updatedRecipes);
     setFilteredRecipes(updatedRecipes);
+    localStorage.setItem('recipes', JSON.stringify(updatedRecipes));
     alert('Recipe Updated!');
   };
 
@@ -65,6 +109,7 @@ const App = () => {
     const updatedRecipes = recipes.filter(recipe => recipe.id !== id);
     setRecipes(updatedRecipes);
     setFilteredRecipes(updatedRecipes);
+    localStorage.setItem('recipes', JSON.stringify(updatedRecipes));
     if (currentPage > Math.ceil(updatedRecipes.length / RECIPES_PER_PAGE)) {
       setCurrentPage(Math.ceil(updatedRecipes.length / RECIPES_PER_PAGE));
     }
@@ -81,31 +126,6 @@ const App = () => {
       setCurrentPage(currentPage - 1);
     }
   };
-
-  useEffect(() => {
-    fetch('/DB.json')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network Response Error');
-        }
-        return response.json();
-      })
-      .then(data => {
-        const recipesWithIds = data.recipes.map(recipe => ({
-          ...recipe,
-          id: uuidv4(),
-        }));
-        setRecipes(recipesWithIds);
-        setFilteredRecipes(recipesWithIds);
-        setCategories([...new Set(recipesWithIds.map(recipe => recipe.category))]);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error Fetching Data:', error);
-        setError(error);
-        setLoading(false);
-      });
-  }, []);
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
@@ -129,12 +149,7 @@ const App = () => {
     } else {
       setFilteredRecipes(recipes.filter((recipe) => recipe.category === category));
     }
-  
-    if (activeCategory === category) {
-      setActiveCategory(null);
-    } else {
-      setActiveCategory(category);
-    }
+    setActiveCategory(category === activeCategory ? null : category);
   };
 
   const handleDismiss = () => {
@@ -186,20 +201,20 @@ const App = () => {
               <button className="search-button" onClick={handleSearchClick}>Search</button>
             </div>
             <div className="category-list">
-  <button
-    className={`category-button ${selectedCategory === 'All' ? 'selected' : ''}`}
-    onClick={() => handleCategoryClick('All')}
-  >
-    All
-  </button>
-  {categories.map((category) => (
-    <button
-      key={category}
-      className={`category-button ${selectedCategory === category ? 'selected' : ''}`}
-      onClick={() => handleCategoryClick(category)}>
-      {category}
-    </button>
-  ))}
+              <button
+                className={`category-button ${selectedCategory === 'All' ? 'selected' : ''}`}
+                onClick={() => handleCategoryClick('All')}
+              >
+                All
+              </button>
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  className={`category-button ${selectedCategory === category ? 'selected' : ''}`}
+                  onClick={() => handleCategoryClick(category)}>
+                  {category}
+                </button>
+              ))}
             </div>
             {isFormVisible && (
               <AddRecipeForm onAdd={handleAddRecipe} onDismiss={() => setIsFormVisible(false)} />
@@ -230,9 +245,9 @@ const App = () => {
           </>
         ) : (
           <Routes>
-            <Route path="/login" element={<Login onLogin={handleLogin}/>}/>
-            <Route path="/register" element={<Register onRegister={handleLogin}/>}/>
-            <Route path="*" element={<Navigate to="/login"/>}/>
+            <Route path="/login" element={<Login onLogin={handleLogin} />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="*" element={<Navigate to="/login" />} />
           </Routes>
         )}
       </div>

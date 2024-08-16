@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './auth.css'; 
 
-const Register = ({ onRegister }) => {
+const Register = ({onRegister}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -38,7 +38,7 @@ const Register = ({ onRegister }) => {
         </video>
         <p><b><i>Cooking With Tlhogi</i></b></p>
         <h2>Register</h2>
-        <p><i>It's Always Pleasure To Have a New Connoisseur Of The Culinary Arts Join Us!</i></p> {/* Added welcome message */}
+        <p><i>It's Always Pleasure To Have a New Connoisseur Of The Culinary Arts Join Us!</i></p> {}
         <form onSubmit={handleRegister}>
           <input className='username' type="text" placeholder="Username" 
             value={username} onChange={(e) => setUsername(e.target.value)} 
