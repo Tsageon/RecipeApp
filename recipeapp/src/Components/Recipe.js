@@ -85,8 +85,7 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
           type="text"
           name="name"
           value={editedRecipe.name}
-          onChange={handleChange}
-        />
+          onChange={handleChange}/>
       ) : (
         <h2>{recipe.name}</h2>
       )}
@@ -97,7 +96,7 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
           value={editedRecipe.image}
           onChange={handleChange}/>
       ) : (
-        <img src={recipe.image} alt={recipe.name} />
+        <img src={recipe.image} alt={recipe.name}/>
       )}
 
       {editable ? (

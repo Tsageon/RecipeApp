@@ -42,7 +42,7 @@ const AddRecipeForm = ({ onAdd, onDismiss }) => {
     setInstructions(updatedInstructions);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (name.trim() && image.trim()) {
       const newRecipe = {
@@ -57,25 +57,30 @@ const AddRecipeForm = ({ onAdd, onDismiss }) => {
         instructions,
       };
 
-      
-      const existingRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
+      try {
+        const response = await fetch('/DB.json');
+        const data = await response.json();
+        const updatedRecipes = [...data.recipes, newRecipe];
 
-    
-      const updatedRecipes = [...existingRecipes, newRecipe];
+        localStorage.setItem('recipes', JSON.stringify(updatedRecipes));
+        alert('Recipe temporarily added!');
+        
+        if (onAdd) {
+          onAdd(newRecipe);  
+        }
 
-      localStorage.setItem('recipes', JSON.stringify(updatedRecipes));
-
-      if (onAdd) {
-        onAdd(newRecipe);
+        setName('');
+        setImage('');
+        setCategory('');
+        setPrepTime('');
+        setServingTime('');
+        setServings('');
+        setIngredients([{ quantity: '', item: '' }]);
+        setInstructions(['']);
+      } catch (error) {
+        console.error('Error adding recipe:', error);
+        alert('Failed to add recipe.');
       }
-      setName('');
-      setImage('');
-      setCategory('');
-      setPrepTime('');
-      setServingTime('');
-      setServings('');
-      setIngredients([{ quantity: '', item: '' }]);
-      setInstructions(['']);
     } else {
       alert('Enter a Name and an Image URL for the Recipe.');
     }

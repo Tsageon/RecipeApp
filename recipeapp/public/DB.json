@@ -1,6 +1,6 @@
 {
   "recipes": [
-   {
+    {
       "name": "Regular Muffins",
       "image": "https://media.gettyimages.com/id/182441598/photo/pumpkin-muffins.jpg?s=2048x2048&w=gi&k=20&c=Bc5zqKslhSWBK5KuSK-g4dWhG7hSMehHBteIJM1T1BE=",
       "category": "Dessert",
@@ -8,14 +8,38 @@
       "servingTime": "20 minutes",
       "servings": "12 muffins",
       "ingredients": [
-        {"item": "all-purpose flour", "quantity": "2 cups"},
-        {"item": "sugar", "quantity": "1 cup"},
-        {"item": "baking powder", "quantity": "2 teaspoons"},
-        {"item": "salt", "quantity": "1/2 teaspoon"},
-        {"item": "milk", "quantity": "1 cup"},
-        {"item": "vegetable oil", "quantity": "1/2 cup"},
-        {"item": "egg", "quantity": "1"},
-        {"item": "vanilla extract", "quantity": "1 teaspoon"}
+        {
+          "item": "all-purpose flour",
+          "quantity": "2 cups"
+        },
+        {
+          "item": "sugar",
+          "quantity": "1 cup"
+        },
+        {
+          "item": "baking powder",
+          "quantity": "2 teaspoons"
+        },
+        {
+          "item": "salt",
+          "quantity": "1/2 teaspoon"
+        },
+        {
+          "item": "milk",
+          "quantity": "1 cup"
+        },
+        {
+          "item": "vegetable oil",
+          "quantity": "1/2 cup"
+        },
+        {
+          "item": "egg",
+          "quantity": "1"
+        },
+        {
+          "item": "vanilla extract",
+          "quantity": "1 teaspoon"
+        }
       ],
       "instructions": [
         "Preheat the oven to 400°F (200°C). Grease a muffin tin or line with paper liners.",
@@ -26,7 +50,8 @@
         "Spoon the batter into the prepared muffin tin, filling each cup about 2/3 full.",
         "Bake for 15-20 minutes, or until a toothpick inserted into the center of a muffin comes out clean.",
         "Let the muffins cool in the tin for 5 minutes, then transfer to a wire rack to cool completely."
-      ]
+      ],
+      "id": "572a"
     },
     {
       "name": "Savory Party Bread",
@@ -36,14 +61,38 @@
       "servingTime": "30 minutes",
       "servings": "8 servings",
       "ingredients": [
-        {"item": "loaf of French bread", "quantity": "1"},
-        {"item": "butter", "quantity": "1/2 cup"},
-        {"item": "garlic cloves", "quantity": "4, minced"},
-        {"item": "Parmesan cheese", "quantity": "1/2 cup, grated"},
-        {"item": "cheddar cheese", "quantity": "1 cup, shredded"},
-        {"item": "fresh parsley", "quantity": "2 tablespoons, chopped"},
-        {"item": "salt", "quantity": "1/2 teaspoon"},
-        {"item": "black pepper", "quantity": "1/4 teaspoon"}
+        {
+          "item": "loaf of French bread",
+          "quantity": "1"
+        },
+        {
+          "item": "butter",
+          "quantity": "1/2 cup"
+        },
+        {
+          "item": "garlic cloves",
+          "quantity": "4, minced"
+        },
+        {
+          "item": "Parmesan cheese",
+          "quantity": "1/2 cup, grated"
+        },
+        {
+          "item": "cheddar cheese",
+          "quantity": "1 cup, shredded"
+        },
+        {
+          "item": "fresh parsley",
+          "quantity": "2 tablespoons, chopped"
+        },
+        {
+          "item": "salt",
+          "quantity": "1/2 teaspoon"
+        },
+        {
+          "item": "black pepper",
+          "quantity": "1/4 teaspoon"
+        }
       ],
       "instructions": [
         "Preheat your oven to 375°F (190°C).",
@@ -52,7 +101,8 @@
         "Spread the butter mixture evenly over the cut sides of the bread.",
         "Place the bread on a baking sheet and bake for 15-20 minutes, or until the cheese is melted and bubbly.",
         "Remove from the oven and let cool slightly before slicing into pieces and serving."
-      ]
+      ],
+      "id": "9392"
     },
     {
       "name": "Asparagus-Stuffed Chicken Breast",
@@ -62,14 +112,38 @@
       "servingTime": "25 minutes",
       "servings": "4 servings",
       "ingredients": [
-        {"item": "boneless, skinless chicken breasts", "quantity": "4"},
-        {"item": "asparagus spears", "quantity": "12"},
-        {"item": "cream cheese", "quantity": "4 ounces, softened"},
-        {"item": "Parmesan cheese", "quantity": "1/4 cup, grated"},
-        {"item": "garlic powder", "quantity": "1/2 teaspoon"},
-        {"item": "salt", "quantity": "1/2 teaspoon"},
-        {"item": "black pepper", "quantity": "1/4 teaspoon"},
-        {"item": "olive oil", "quantity": "2 tablespoons"}
+        {
+          "item": "boneless, skinless chicken breasts",
+          "quantity": "4"
+        },
+        {
+          "item": "asparagus spears",
+          "quantity": "12"
+        },
+        {
+          "item": "cream cheese",
+          "quantity": "4 ounces, softened"
+        },
+        {
+          "item": "Parmesan cheese",
+          "quantity": "1/4 cup, grated"
+        },
+        {
+          "item": "garlic powder",
+          "quantity": "1/2 teaspoon"
+        },
+        {
+          "item": "salt",
+          "quantity": "1/2 teaspoon"
+        },
+        {
+          "item": "black pepper",
+          "quantity": "1/4 teaspoon"
+        },
+        {
+          "item": "olive oil",
+          "quantity": "2 tablespoons"
+        }
       ],
       "instructions": [
         "Preheat your oven to 375°F (190°C).",
@@ -80,7 +154,8 @@
         "Rub the outside of each chicken breast with olive oil and season with additional salt and pepper if desired.",
         "Place the stuffed chicken breasts in a baking dish and bake for 20-25 minutes, or until the chicken is cooked through and the internal temperature reaches 165°F (74°C).",
         "Remove the toothpicks and serve hot."
-      ]
+      ],
+      "id": "23bb"
     },
     {
       "name": "Homemade Pork Sausage Patties",
@@ -90,14 +165,38 @@
       "servingTime": "15 minutes",
       "servings": "4 servings",
       "ingredients": [
-        {"item": "ground pork", "quantity": "1 pound"},
-        {"item": "salt", "quantity": "1 teaspoon"},
-        {"item": "black pepper", "quantity": "1/2 teaspoon"},
-        {"item": "ground sage", "quantity": "1 teaspoon"},
-        {"item": "thyme", "quantity": "1/2 teaspoon"},
-        {"item": "garlic powder", "quantity": "1/2 teaspoon"},
-        {"item": "onion powder", "quantity": "1/2 teaspoon"},
-        {"item": "red pepper flakes", "quantity": "1/4 teaspoon (optional)"}
+        {
+          "item": "ground pork",
+          "quantity": "1 pound"
+        },
+        {
+          "item": "salt",
+          "quantity": "1 teaspoon"
+        },
+        {
+          "item": "black pepper",
+          "quantity": "1/2 teaspoon"
+        },
+        {
+          "item": "ground sage",
+          "quantity": "1 teaspoon"
+        },
+        {
+          "item": "thyme",
+          "quantity": "1/2 teaspoon"
+        },
+        {
+          "item": "garlic powder",
+          "quantity": "1/2 teaspoon"
+        },
+        {
+          "item": "onion powder",
+          "quantity": "1/2 teaspoon"
+        },
+        {
+          "item": "red pepper flakes",
+          "quantity": "1/4 teaspoon (optional)"
+        }
       ],
       "instructions": [
         "In a large bowl, combine the ground pork with salt, black pepper, sage, thyme, garlic powder, onion powder, and red pepper flakes (if using).",
@@ -106,7 +205,8 @@
         "Heat a skillet over medium heat and add a small amount of oil.",
         "Cook the patties for 4-5 minutes per side, or until the internal temperature reaches 160°F (71°C) and the patties are browned and cooked through.",
         "Remove from the skillet and let rest for a few minutes before serving."
-      ]
+      ],
+      "id": "9448"
     },
     {
       "name": "Chocolate Cake",
@@ -116,17 +216,50 @@
       "servingTime": "35 minutes",
       "servings": "8 servings",
       "ingredients": [
-        {"item": "all-purpose flour", "quantity": "1 and 3/4 cups"},
-        {"item": "granulated sugar", "quantity": "2 cups"},
-        {"item": "unsweetened cocoa powder", "quantity": "3/4 cup"},
-        {"item": "baking powder", "quantity": "1 and 1/2 teaspoons"},
-        {"item": "baking soda", "quantity": "1 and 1/2 teaspoons"},
-        {"item": "salt", "quantity": "1 teaspoon"},
-        {"item": "eggs", "quantity": "2"},
-        {"item": "whole milk", "quantity": "1 cup"},
-        {"item": "vegetable oil", "quantity": "1/2 cup"},
-        {"item": "vanilla extract", "quantity": "2 teaspoons"},
-        {"item": "boiling water", "quantity": "1 cup"}
+        {
+          "item": "all-purpose flour",
+          "quantity": "1 and 3/4 cups"
+        },
+        {
+          "item": "granulated sugar",
+          "quantity": "2 cups"
+        },
+        {
+          "item": "unsweetened cocoa powder",
+          "quantity": "3/4 cup"
+        },
+        {
+          "item": "baking powder",
+          "quantity": "1 and 1/2 teaspoons"
+        },
+        {
+          "item": "baking soda",
+          "quantity": "1 and 1/2 teaspoons"
+        },
+        {
+          "item": "salt",
+          "quantity": "1 teaspoon"
+        },
+        {
+          "item": "eggs",
+          "quantity": "2"
+        },
+        {
+          "item": "whole milk",
+          "quantity": "1 cup"
+        },
+        {
+          "item": "vegetable oil",
+          "quantity": "1/2 cup"
+        },
+        {
+          "item": "vanilla extract",
+          "quantity": "2 teaspoons"
+        },
+        {
+          "item": "boiling water",
+          "quantity": "1 cup"
+        }
       ],
       "instructions": [
         "Preheat your oven to 350°F (175°C). Grease and flour two 9-inch round baking pans.",
@@ -137,7 +270,8 @@
         "Bake for 30 to 35 minutes, or until a toothpick inserted into the center comes out clean.",
         "Cool the cakes in the pans for 10 minutes, then remove them from the pans and transfer to a wire rack to cool completely.",
         "Frost with your favorite chocolate frosting and serve."
-      ]
+      ],
+      "id": "582c"
     },
     {
       "name": "Sardine Sandwich",
@@ -147,14 +281,38 @@
       "servingTime": "5 minutes",
       "servings": "1 sandwich",
       "ingredients": [
-        {"item": "canned sardines", "quantity": "1 can"},
-        {"item": "bread", "quantity": "2 slices"},
-        {"item": "mayonnaise", "quantity": "2 tablespoons"},
-        {"item": "lemon juice", "quantity": "1 teaspoon"},
-        {"item": "lettuce", "quantity": "2 leaves"},
-        {"item": "tomato", "quantity": "2 slices"},
-        {"item": "salt", "quantity": "to taste"},
-        {"item": "black pepper", "quantity": "to taste"}
+        {
+          "item": "canned sardines",
+          "quantity": "1 can"
+        },
+        {
+          "item": "bread",
+          "quantity": "2 slices"
+        },
+        {
+          "item": "mayonnaise",
+          "quantity": "2 tablespoons"
+        },
+        {
+          "item": "lemon juice",
+          "quantity": "1 teaspoon"
+        },
+        {
+          "item": "lettuce",
+          "quantity": "2 leaves"
+        },
+        {
+          "item": "tomato",
+          "quantity": "2 slices"
+        },
+        {
+          "item": "salt",
+          "quantity": "to taste"
+        },
+        {
+          "item": "black pepper",
+          "quantity": "to taste"
+        }
       ],
       "instructions": [
         "Drain the canned sardines and remove any bones if desired.",
@@ -165,7 +323,8 @@
         "Place lettuce and tomato slices on top of the sardine mixture.",
         "Cover with the second slice of bread.",
         "Cut the sandwich in half and serve."
-      ]
+      ],
+      "id": "04d3"
     },
     {
       "name": "Beef Jerky",
@@ -175,16 +334,46 @@
       "servingTime": "4 hours",
       "servings": "Makes about 2 cups",
       "ingredients": [
-        {"item": "beef (flank steak or top round)", "quantity": "1 pound"},
-        {"item": "soy sauce", "quantity": "1/4 cup"},
-        {"item": "Worcestershire sauce", "quantity": "2 tablespoons"},
-        {"item": "liquid smoke", "quantity": "1/2 teaspoon"},
-        {"item": "brown sugar", "quantity": "1 tablespoon"},
-        {"item": "black pepper", "quantity": "1 teaspoon"},
-        {"item": "garlic powder", "quantity": "1 teaspoon"},
-        {"item": "onion powder", "quantity": "1 teaspoon"},
-        {"item": "red pepper flakes", "quantity": "1/2 teaspoon"},
-        {"item": "kosher salt", "quantity": "1 teaspoon"}
+        {
+          "item": "beef (flank steak or top round)",
+          "quantity": "1 pound"
+        },
+        {
+          "item": "soy sauce",
+          "quantity": "1/4 cup"
+        },
+        {
+          "item": "Worcestershire sauce",
+          "quantity": "2 tablespoons"
+        },
+        {
+          "item": "liquid smoke",
+          "quantity": "1/2 teaspoon"
+        },
+        {
+          "item": "brown sugar",
+          "quantity": "1 tablespoon"
+        },
+        {
+          "item": "black pepper",
+          "quantity": "1 teaspoon"
+        },
+        {
+          "item": "garlic powder",
+          "quantity": "1 teaspoon"
+        },
+        {
+          "item": "onion powder",
+          "quantity": "1 teaspoon"
+        },
+        {
+          "item": "red pepper flakes",
+          "quantity": "1/2 teaspoon"
+        },
+        {
+          "item": "kosher salt",
+          "quantity": "1 teaspoon"
+        }
       ],
       "instructions": [
         "Freeze the beef for about 1-2 hours until firm but not frozen solid. This makes it easier to slice.",
@@ -195,7 +384,8 @@
         "Arrange the beef strips on the racks in a single layer, making sure they do not overlap.",
         "Bake in the preheated oven until the jerky is dry and firm yet slightly pliable when bent, about 3-4 hours. Check occasionally to avoid over-drying.",
         "Remove from the oven and let cool completely. Store in an airtight container."
-      ]
+      ],
+      "id": "afc7"
     },
     {
       "name": "Chicken Fajitas",
@@ -204,22 +394,61 @@
       "prepTime": "15 minutes",
       "servingTime": "20 minutes",
       "servings": "4",
-      "ingredients":[
-      {"item":"boneless,skinless chicken breasts or thighs", "quantity":"680g"},
-      {"item":"Bell peppers", "quantity":"3"},
-      {"item":"Large onion", "quantity":"1"},
-      {"item":"Olive oil", "quantity":"2 tablespoons"},
-      {"item":"Chili powder", "quantity":"2 teaspoons"},
-      {"item":"Paprika", "quantity":"1 teaspoon of"},
-      {"item":"Ground cumin", "quantity":" 1 teaspoon of"},
-      {"item":"Garlic powder", "quantity":"1 teaspoon of"},
-      {"item":"Onion powder", "quantity":"1 teaspoon of"},
-      {"item":"Dried oregano", "quantity":"1/2 teaspoon of"},
-      {"item":"Salt", "quantity":"1/2 teaspoon of"},
-      {"item":"Black peppers", "quantity":"1/4 teaspoon of"},
-      {"item":"Crushed Red pepper flakes ", "quantity":"1/4 teaspoon of"}
+      "ingredients": [
+        {
+          "item": "boneless,skinless chicken breasts or thighs",
+          "quantity": "680g"
+        },
+        {
+          "item": "Bell peppers",
+          "quantity": "3"
+        },
+        {
+          "item": "Large onion",
+          "quantity": "1"
+        },
+        {
+          "item": "Olive oil",
+          "quantity": "2 tablespoons"
+        },
+        {
+          "item": "Chili powder",
+          "quantity": "2 teaspoons"
+        },
+        {
+          "item": "Paprika",
+          "quantity": "1 teaspoon of"
+        },
+        {
+          "item": "Ground cumin",
+          "quantity": " 1 teaspoon of"
+        },
+        {
+          "item": "Garlic powder",
+          "quantity": "1 teaspoon of"
+        },
+        {
+          "item": "Onion powder",
+          "quantity": "1 teaspoon of"
+        },
+        {
+          "item": "Dried oregano",
+          "quantity": "1/2 teaspoon of"
+        },
+        {
+          "item": "Salt",
+          "quantity": "1/2 teaspoon of"
+        },
+        {
+          "item": "Black peppers",
+          "quantity": "1/4 teaspoon of"
+        },
+        {
+          "item": "Crushed Red pepper flakes ",
+          "quantity": "1/4 teaspoon of"
+        }
       ],
-      "instructions":[
+      "instructions": [
         "Cut the chicken into thin strips.",
         "In a large bowl, combine the chili powder, paprika, ground cumin, garlic powder, onion powder, dried oregano, salt, black pepper, and crushed red pepper flakes",
         "Add the sliced chicken to the bowl and drizzle with olive oil and lime juice. Toss until the chicken is evenly coated with the spice mixture.",
@@ -231,7 +460,8 @@
         "Return the cooked chicken to the skillet with the vegetables. Toss everything together and cook for an additional 2-3 minutes to let the flavors meld.",
         "Warm the tortillas in a dry skillet or directly over a gas flame until slightly charred.",
         "Serve the chicken and vegetables with the tortillas and your choice of toppings."
-      ]
+      ],
+      "id": "cb47"
     },
     {
       "name": "Fried Rice",
@@ -241,18 +471,54 @@
       "servingTime": "10 minutes",
       "servings": "4 servings",
       "ingredients": [
-        {"item": "cooked rice", "quantity": "4 cups"},
-        {"item": "vegetable oil", "quantity": "2 tablespoons"},
-        {"item": "onion", "quantity": "1 small, diced"},
-        {"item": "carrot", "quantity": "1 small, diced"},
-        {"item": "peas", "quantity": "1/2 cup"},
-        {"item": "garlic", "quantity": "2 cloves, minced"},
-        {"item": "soy sauce", "quantity": "3 tablespoons"},
-        {"item": "sesame oil", "quantity": "1 teaspoon"},
-        {"item": "eggs", "quantity": "2, beaten"},
-        {"item": "green onions", "quantity": "2, sliced"},
-        {"item": "salt", "quantity": "to taste"},
-        {"item": "black pepper", "quantity": "to taste"}
+        {
+          "item": "cooked rice",
+          "quantity": "4 cups"
+        },
+        {
+          "item": "vegetable oil",
+          "quantity": "2 tablespoons"
+        },
+        {
+          "item": "onion",
+          "quantity": "1 small, diced"
+        },
+        {
+          "item": "carrot",
+          "quantity": "1 small, diced"
+        },
+        {
+          "item": "peas",
+          "quantity": "1/2 cup"
+        },
+        {
+          "item": "garlic",
+          "quantity": "2 cloves, minced"
+        },
+        {
+          "item": "soy sauce",
+          "quantity": "3 tablespoons"
+        },
+        {
+          "item": "sesame oil",
+          "quantity": "1 teaspoon"
+        },
+        {
+          "item": "eggs",
+          "quantity": "2, beaten"
+        },
+        {
+          "item": "green onions",
+          "quantity": "2, sliced"
+        },
+        {
+          "item": "salt",
+          "quantity": "to taste"
+        },
+        {
+          "item": "black pepper",
+          "quantity": "to taste"
+        }
       ],
       "instructions": [
         "Heat 1 tablespoon of vegetable oil in a large skillet or wok over medium-high heat.",
@@ -265,7 +531,8 @@
         "Cook for another 2-3 minutes, stirring occasionally, until the rice is heated through.",
         "Remove from heat and stir in the sliced green onions.",
         "Serve hot and enjoy your fried rice."
-      ]
+      ],
+      "id": "f76b"
     }
   ]
 }
