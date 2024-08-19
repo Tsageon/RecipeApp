@@ -106,7 +106,7 @@ const App = () => {
       setFilteredRecipes(prevRecipes => prevRecipes.map(recipe => recipe.id === updatedRecipe.id ? updatedData : recipe));
     } catch (error) {
       console.error('Error updating recipe:', error);
-    }
+    } 
   };
   const handleDeleteRecipe = async (id) => {
     try {
@@ -185,98 +185,105 @@ const App = () => {
   return (
     <Router>
       <div className="app">
-        {isAuthenticated ? (
-          <>
-            <h1 className="heading">Recipe Book</h1>
-            <div className="user-info">
-              {loggedInUser ? (
-                <p>Welcome, {loggedInUser.email}!</p>
-              ) : (
-                <p>Loading user Information...</p>
-              )}
-            </div>
-            <div className="header-buttons">
-              <button className="profile-button" onClick={() => setIsProfileVisible(true)}>
-                <Link to="/profile">User</Link>
-              </button>
-              <button className="logout-button" onClick={handleLogout}>Logout</button>
-              <button onClick={() => setIsFormVisible(true)}>Add New Recipe</button>
-            </div>
-            <div className="search-container">
-              <input
-                type="text"
-                placeholder="Search recipes"
-                value={searchQuery}
-                onChange={handleSearchChange}
-                className="search-input"
-              />
-              <button className="search-button" onClick={handleSearchClick}>Search</button>
-            </div>
-            <div className="category-list">
-  <button
-    key="all"
-    className={`category-button ${selectedCategory === 'All' ? 'selected' : ''}`}
-    onClick={() => handleCategoryClick('All')}
-  >
-    All
-  </button>
-  {categories.map((category) => (
-    <button
-      key={category}
-      className={`category-button ${selectedCategory === category ? 'selected' : ''}`}
-      onClick={() => handleCategoryClick(category)}
-    >
-      {category}
-    </button>
-  ))}
-</div>
+      {isAuthenticated ? (
+  <>
+    <h1 className="heading">Recipe Book</h1>
+    <div className="user-info">
+      {loggedInUser ? (
+        <p>Welcome, {loggedInUser.email}!</p>
+      ) : (
+        <p>Loading user Information...</p>
+      )}
+    </div>
+    <div className="header-buttons">
+      <button className="profile-button" onClick={() => setIsProfileVisible(true)}>
+        <Link to="/profile">User</Link>
+      </button>
+      <button className="logout-button" onClick={handleLogout}>Logout</button>
+      <button onClick={() => setIsFormVisible(true)}>Add New Recipe</button>
+    </div>
+    <div className="search-container">
+      <input
+        type="text"
+        placeholder="Search recipes"
+        value={searchQuery}
+        onChange={handleSearchChange}
+        className="search-input"
+      />
+      <button className="search-button" onClick={handleSearchClick}>Search</button>
+    </div>
+    <div className="category-list">
+      <button
+        key="all"
+        className={`category-button ${selectedCategory === 'All' ? 'selected' : ''}`}
+        onClick={() => handleCategoryClick('All')}
+      >
+        All
+      </button>
+      {categories.map((category) => (
+        <button
+          key={category}
+          className={`category-button ${selectedCategory === category ? 'selected' : ''}`}
+          onClick={() => handleCategoryClick(category)}
+        >
+          {category}
+        </button>
+      ))}
+    </div>
 
-            {isFormVisible && (
-              <AddRecipeForm onAdd={handleAddRecipe} onDismiss={() => setIsFormVisible(false)} />
-            )}
-            {isProfileVisible && (
-              <UserProfile user={loggedInUser} onUpdate={handleLogin} onDismiss={handleDismiss} />
-            )}
-            {!isFormVisible && !isProfileVisible && (
-              <div>
-               {currentRecipes.map(recipe => (
-  <Recipe
-    key={recipe.id} recipe={recipe}
-    onEdit={handleUpdateRecipe}
-    onDelete={handleDeleteRecipe}/>
-))}
-
-              </div>
-            )}
-            <div className="pagination-buttons">
-              <button onClick={previousRecipePage} disabled={currentPage === 1}>
-                Back
-              </button>
-              <span>
-                Page {currentPage} of {Math.ceil(filteredRecipes.length / RECIPES_PER_PAGE)}
-              </span>
-              <button
-                onClick={nextRecipePage}
-                disabled={currentPage === Math.ceil(filteredRecipes.length / RECIPES_PER_PAGE)}
-              >
-                Next
-              </button>
-            </div>
-
-            <Routes>
-              <Route
-                path="/profile"
-                element={<UserProfile user={loggedInUser} onUpdate={handleLogin} onDismiss={handleDismiss} />}
-              />
-            </Routes>
-          </>
-        ) : (
-          <Routes>
-            <Route path="/login" element={<Login onLogin={handleLogin} />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="*" element={<Navigate to="/login" />} />
-          </Routes>
+    {isFormVisible ? (
+      <AddRecipeForm onAdd={handleAddRecipe} onDismiss={() => setIsFormVisible(false)} />
+    ) : (
+      <>
+        {isProfileVisible && (
+          <UserProfile user={loggedInUser} onUpdate={handleLogin} onDismiss={handleDismiss} />
         )}
+        {!isProfileVisible && (
+          <div>
+            {currentRecipes.map(recipe => (
+              <Recipe
+                key={recipe.id}
+                recipe={recipe}
+                onEdit={handleUpdateRecipe}
+                onDelete={handleDeleteRecipe}
+              />
+            ))}
+          </div>
+        )}
+        {!isFormVisible && (
+          <div className="pagination-buttons">
+            <button onClick={previousRecipePage} disabled={currentPage === 1}>
+              Back
+            </button>
+            <span>
+              Page {currentPage} of {Math.ceil(filteredRecipes.length / RECIPES_PER_PAGE)}
+            </span>
+            <button
+              onClick={nextRecipePage}
+              disabled={currentPage === Math.ceil(filteredRecipes.length / RECIPES_PER_PAGE)}
+            >
+              Next
+            </button>
+          </div>
+        )}
+      </>
+    )}
+
+    <Routes>
+      <Route
+        path="/profile"
+        element={<UserProfile user={loggedInUser} onUpdate={handleLogin} onDismiss={handleDismiss} />}
+      />
+    </Routes>
+  </>
+) : (
+  <Routes>
+    <Route path="/login" element={<Login onLogin={handleLogin} />} />
+    <Route path="/register" element={<Register />} />
+    <Route path="*" element={<Navigate to="/login" />} />
+  </Routes>
+)}
+
       </div>
     </Router>
   );
