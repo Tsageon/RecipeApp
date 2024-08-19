@@ -73,8 +73,7 @@ const App = () => {
       const response = await fetch('http://localhost:3001/recipes', { 
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-        },
+          'Content-Type': 'application/json',},
         body: JSON.stringify(newRecipe),
       });
     
@@ -94,8 +93,7 @@ const App = () => {
       const response = await fetch(`http://localhost:3001/recipes/${updatedRecipe.id}`, { 
         method: 'PUT',
         headers: {
-          'Content-Type': 'application/json',
-        },
+          'Content-Type': 'application/json',},
         body: JSON.stringify(updatedRecipe),
       });
       if (!response.ok) {
@@ -108,6 +106,7 @@ const App = () => {
       console.error('Error updating recipe:', error);
     } 
   };
+
   const handleDeleteRecipe = async (id) => {
     try {
       const response = await fetch(`http://localhost:3001/recipes/${id}`, { 

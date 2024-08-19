@@ -156,12 +156,12 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
             <input
               type="text"
               value={newIngredient.quantity}
-              onChange={(e) => setNewIngredient({ ...newIngredient, quantity: e.target.value })}
+              onChange={(e) => setNewIngredient({...newIngredient, quantity: e.target.value })}
               placeholder="New Quantity"/>
             <input
               type="text"
               value={newIngredient.item}
-              onChange={(e) => setNewIngredient({ ...newIngredient, item: e.target.value })}
+              onChange={(e) => setNewIngredient({...newIngredient, item: e.target.value })}
               placeholder="New Item"/>
           </>
         ) : (
@@ -190,9 +190,8 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
                 <button onClick={handleAddInstruction}>Add Instruction</button>
                 <input
                   type="text"
-                  value={newInstruction}
-                  onChange={(e) => setNewInstruction(e.target.value)}
-                  placeholder="New Instruction"/>
+                  placeholder="New Instruction"
+                  value={newInstruction} onChange={(e) => setNewInstruction(e.target.value)}/>
               </>
             ) : (
               editedRecipe.instructions.map((instruction, index) => (
@@ -210,10 +209,7 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
       {editable && (
         <button onClick={() => setEditable(false)}>Cancel</button>
       )}
-
-      <button onClick={() => setShowAllInstructions(!showAllInstructions)}>
-        {showAllInstructions ? 'Show Less' : 'Read More'}
-      </button>
+    <button onClick={() => setShowAllInstructions(!showAllInstructions)}> {showAllInstructions ? 'Show Less' : 'Read More'}</button>
     </div>
   );
 };

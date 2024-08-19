@@ -47,8 +47,7 @@ const UserProfile = ({ user, onUpdate, onDismiss }) => {
                 id="username"
                 type="text"
                 name="username"
-                value={formData.username}
-                onChange={handleChange}/>
+                value={formData.username} onChange={handleChange}/>
             </div>
             <div>
               <label htmlFor="email">Email:</label>
@@ -56,8 +55,7 @@ const UserProfile = ({ user, onUpdate, onDismiss }) => {
                 id="email"
                 type="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}/>
+                value={formData.email} onChange={handleChange}/>
             </div>
             <div>
               <label htmlFor="password">Password:</label>
@@ -65,8 +63,7 @@ const UserProfile = ({ user, onUpdate, onDismiss }) => {
                 id="password"
                 type="password"
                 name="password"
-                value={formData.password}
-                onChange={handleChange}/>
+                value={formData.password} onChange={handleChange}/>
             </div>
             <div>
               <label htmlFor="profilePicture">Profile Picture URL:</label>
@@ -74,9 +71,8 @@ const UserProfile = ({ user, onUpdate, onDismiss }) => {
                 id="profilePicture"
                 type="text"
                 name="profilePicture"
-                value={formData.profilePicture}
-                onChange={handleChange}
-                placeholder="Profile Picture URL"/>
+                placeholder="Profile Picture URL"
+                value={formData.profilePicture} onChange={handleChange}/>
             </div>
             <div className="form-buttons">
               <button type="submit">Save</button>
