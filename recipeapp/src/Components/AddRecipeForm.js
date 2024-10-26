@@ -44,6 +44,7 @@ const AddRecipeForm = ({ onAdd, onDismiss }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     if (name.trim() && image.trim()) {
       const newRecipe = {
         id: uuidv4(),
@@ -54,20 +55,30 @@ const AddRecipeForm = ({ onAdd, onDismiss }) => {
         servingTime,
         servings,
         ingredients,
-        instructions,};
-
+        instructions,
+      };
+  
       try {
-        const response = await fetch('/DB.json');
-        const data = await response.json();
-        const updatedRecipes = [...data.recipes, newRecipe];
-
-        localStorage.setItem('recipes', JSON.stringify(updatedRecipes));
-        alert('Recipe TEMPORARILY Added!');
+        const response = await fetch('http://localhost:3001/recipes', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newRecipe)
+        });
+  
+        if (!response.ok) {
+          throw new Error('Failed to add recipe');
+        }
+  
+        const addedRecipe = await response.json();
+        alert('Recipe Successfully Added!');
+  
         
         if (onAdd) {
-          onAdd(newRecipe);  
+          onAdd(addedRecipe);  
         }
-
+  
         setName('');
         setImage('');
         setCategory('');
@@ -82,8 +93,9 @@ const AddRecipeForm = ({ onAdd, onDismiss }) => {
       }
     } else {
       alert('Enter A Name And An Image URL For The Recipe.');
-    }};
-
+    }
+  };
+  
   return (
     <form className="add-recipe-form" onSubmit={handleSubmit}>
       <h2>Add New Recipe</h2>

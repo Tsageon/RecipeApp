@@ -1,153 +1,332 @@
 {
-    "recipes": [
-      {
-        "recipe": {
-          "name": "Regular Muffins",
-          "image": "https://via.placeholder.com/150",
-          "ingredients": [
-            {"item": "all-purpose flour", "quantity": "2 cups"},
-            {"item": "sugar", "quantity": "1 cup"},
-            {"item": "baking powder", "quantity": "2 teaspoons"},
-            {"item": "salt", "quantity": "1/2 teaspoon"},
-            {"item": "milk", "quantity": "1 cup"},
-            {"item": "vegetable oil", "quantity": "1/2 cup"},
-            {"item": "egg", "quantity": "1"},
-            {"item": "vanilla extract", "quantity": "1 teaspoon"},
-            {
-              "item": "optional/Extra ingredients",
-              "items": [
-                {"item": "blueberries", "quantity": "1 cup"},
-                {"item": "chocolate chips", "quantity": "1 cup"},
-                {"item": "nuts", "quantity": "1/2 cup"}
-              ]
-            }
-          ],
-          "instructions": [
-            "Preheat the oven to 400°F (200°C). Grease a muffin tin or line with paper liners.",
-            "In a large bowl, whisk together the flour, sugar, baking powder, and salt.",
-            "In another bowl, combine the milk, vegetable oil, egg, and vanilla extract.",
-            "Pour the wet ingredients into the dry ingredients and stir until just combined. Do not overmix.",
-            "Fold in any optional ingredients such as blueberries, chocolate chips, or nuts.",
-            "Spoon the batter into the prepared muffin tin, filling each cup about 2/3 full.",
-            "Bake for 15-20 minutes, or until a toothpick inserted into the center of a muffin comes out clean.",
-            "Let the muffins cool in the tin for 5 minutes, then transfer to a wire rack to cool completely."
-          ]
-        }
+  "recipes": [
+    {
+      "recipe": {
+        "name": "Regular Muffins",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": [
+          {
+            "item": "all-purpose flour",
+            "quantity": "2 cups"
+          },
+          {
+            "item": "sugar",
+            "quantity": "1 cup"
+          },
+          {
+            "item": "baking powder",
+            "quantity": "2 teaspoons"
+          },
+          {
+            "item": "salt",
+            "quantity": "1/2 teaspoon"
+          },
+          {
+            "item": "milk",
+            "quantity": "1 cup"
+          },
+          {
+            "item": "vegetable oil",
+            "quantity": "1/2 cup"
+          },
+          {
+            "item": "egg",
+            "quantity": "1"
+          },
+          {
+            "item": "vanilla extract",
+            "quantity": "1 teaspoon"
+          },
+          {
+            "item": "optional/Extra ingredients",
+            "items": [
+              {
+                "item": "blueberries",
+                "quantity": "1 cup"
+              },
+              {
+                "item": "chocolate chips",
+                "quantity": "1 cup"
+              },
+              {
+                "item": "nuts",
+                "quantity": "1/2 cup"
+              }
+            ]
+          }
+        ],
+        "instructions": [
+          "Preheat the oven to 400°F (200°C). Grease a muffin tin or line with paper liners.",
+          "In a large bowl, whisk together the flour, sugar, baking powder, and salt.",
+          "In another bowl, combine the milk, vegetable oil, egg, and vanilla extract.",
+          "Pour the wet ingredients into the dry ingredients and stir until just combined. Do not overmix.",
+          "Fold in any optional ingredients such as blueberries, chocolate chips, or nuts.",
+          "Spoon the batter into the prepared muffin tin, filling each cup about 2/3 full.",
+          "Bake for 15-20 minutes, or until a toothpick inserted into the center of a muffin comes out clean.",
+          "Let the muffins cool in the tin for 5 minutes, then transfer to a wire rack to cool completely."
+        ]
       },
-      {
-        "recipe": {
-          "name": "Chocolate Cake",
-          "image": "https://via.placeholder.com/150",
-          "ingredients": [
-            {"item": "all-purpose flour", "quantity": "1 and 3/4 cups"},
-            {"item": "granulated sugar", "quantity": "2 cups"},
-            {"item": "unsweetened cocoa powder", "quantity": "3/4 cup"},
-            {"item": "baking powder", "quantity": "1 and 1/2 teaspoons"},
-            {"item": "baking soda", "quantity": "1 and 1/2 teaspoons"},
-            {"item": "salt", "quantity": "1 teaspoon"},
-            {"item": "eggs", "quantity": "2"},
-            {"item": "whole milk", "quantity": "1 cup"},
-            {"item": "vegetable oil", "quantity": "1/2 cup"},
-            {"item": "vanilla extract", "quantity": "2 teaspoons"},
-            {"item": "boiling water", "quantity": "1 cup"}
-          ],
-          "instructions": [
-            "Preheat your oven to 350°F (175°C). Grease and flour two 9-inch round baking pans.",
-            "In a large bowl, stir together the flour, sugar, cocoa powder, baking powder, baking soda, and salt.",
-            "Add the eggs, milk, oil, and vanilla extract. Beat on medium speed for 2 minutes.",
-            "Stir in the boiling water. The batter will be thin, but that’s okay.",
-            "Pour the batter evenly into the prepared pans.",
-            "Bake for 30 to 35 minutes, or until a toothpick inserted into the center comes out clean.",
-            "Cool the cakes in the pans for 10 minutes, then remove them from the pans and transfer to a wire rack to cool completely.",
-            "Frost with your favorite chocolate frosting and serve."
-          ]
-        }
+      "id": "9f7a"
+    },
+    {
+      "recipe": {
+        "name": "Chocolate Cake",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": [
+          {
+            "item": "all-purpose flour",
+            "quantity": "1 and 3/4 cups"
+          },
+          {
+            "item": "granulated sugar",
+            "quantity": "2 cups"
+          },
+          {
+            "item": "unsweetened cocoa powder",
+            "quantity": "3/4 cup"
+          },
+          {
+            "item": "baking powder",
+            "quantity": "1 and 1/2 teaspoons"
+          },
+          {
+            "item": "baking soda",
+            "quantity": "1 and 1/2 teaspoons"
+          },
+          {
+            "item": "salt",
+            "quantity": "1 teaspoon"
+          },
+          {
+            "item": "eggs",
+            "quantity": "2"
+          },
+          {
+            "item": "whole milk",
+            "quantity": "1 cup"
+          },
+          {
+            "item": "vegetable oil",
+            "quantity": "1/2 cup"
+          },
+          {
+            "item": "vanilla extract",
+            "quantity": "2 teaspoons"
+          },
+          {
+            "item": "boiling water",
+            "quantity": "1 cup"
+          }
+        ],
+        "instructions": [
+          "Preheat your oven to 350°F (175°C). Grease and flour two 9-inch round baking pans.",
+          "In a large bowl, stir together the flour, sugar, cocoa powder, baking powder, baking soda, and salt.",
+          "Add the eggs, milk, oil, and vanilla extract. Beat on medium speed for 2 minutes.",
+          "Stir in the boiling water. The batter will be thin, but that’s okay.",
+          "Pour the batter evenly into the prepared pans.",
+          "Bake for 30 to 35 minutes, or until a toothpick inserted into the center comes out clean.",
+          "Cool the cakes in the pans for 10 minutes, then remove them from the pans and transfer to a wire rack to cool completely.",
+          "Frost with your favorite chocolate frosting and serve."
+        ]
       },
-      {
-        "recipe": {
-          "name": "Sardine Sandwich",
-          "image": "https://via.placeholder.com/150",
-          "ingredients": [
-            {"item": "canned sardines", "quantity": "1 can"},
-            {"item": "bread", "quantity": "2 slices"},
-            {"item": "mayonnaise", "quantity": "2 tablespoons"},
-            {"item": "lemon juice", "quantity": "1 teaspoon"},
-            {"item": "lettuce", "quantity": "2 leaves"},
-            {"item": "tomato", "quantity": "2 slices"},
-            {"item": "salt", "quantity": "to taste"},
-            {"item": "black pepper", "quantity": "to taste"}
-          ],
-          "instructions": [
-            "Drain the canned sardines and remove any bones if desired.",
-            "In a bowl, mix the sardines with mayonnaise and lemon juice.",
-            "Add salt and black pepper to taste.",
-            "Toast the bread slices if desired.",
-            "Spread the sardine mixture evenly on one slice of bread.",
-            "Place lettuce and tomato slices on top of the sardine mixture.",
-            "Cover with the second slice of bread.",
-            "Cut the sandwich in half and serve."
-          ]
-        }
+      "id": "91dc"
+    },
+    {
+      "recipe": {
+        "name": "Sardine Sandwich",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": [
+          {
+            "item": "canned sardines",
+            "quantity": "1 can"
+          },
+          {
+            "item": "bread",
+            "quantity": "2 slices"
+          },
+          {
+            "item": "mayonnaise",
+            "quantity": "2 tablespoons"
+          },
+          {
+            "item": "lemon juice",
+            "quantity": "1 teaspoon"
+          },
+          {
+            "item": "lettuce",
+            "quantity": "2 leaves"
+          },
+          {
+            "item": "tomato",
+            "quantity": "2 slices"
+          },
+          {
+            "item": "salt",
+            "quantity": "to taste"
+          },
+          {
+            "item": "black pepper",
+            "quantity": "to taste"
+          }
+        ],
+        "instructions": [
+          "Drain the canned sardines and remove any bones if desired.",
+          "In a bowl, mix the sardines with mayonnaise and lemon juice.",
+          "Add salt and black pepper to taste.",
+          "Toast the bread slices if desired.",
+          "Spread the sardine mixture evenly on one slice of bread.",
+          "Place lettuce and tomato slices on top of the sardine mixture.",
+          "Cover with the second slice of bread.",
+          "Cut the sandwich in half and serve."
+        ]
       },
-      {
-        "recipe": {
-          "name": "Beef Jerky",
-          "image": "https://via.placeholder.com/150",
-          "ingredients": [
-            {"item": "beef (flank steak or top round)", "quantity": "1 pound"},
-            {"item": "soy sauce", "quantity": "1/4 cup"},
-            {"item": "Worcestershire sauce", "quantity": "2 tablespoons"},
-            {"item": "liquid smoke", "quantity": "1/2 teaspoon"},
-            {"item": "brown sugar", "quantity": "1 tablespoon"},
-            {"item": "black pepper", "quantity": "1 teaspoon"},
-            {"item": "garlic powder", "quantity": "1 teaspoon"},
-            {"item": "onion powder", "quantity": "1 teaspoon"},
-            {"item": "red pepper flakes", "quantity": "1/2 teaspoon"},
-            {"item": "kosher salt", "quantity": "1 teaspoon"}
-          ],
-          "instructions": [
-            "Freeze the beef for about 1-2 hours until firm but not frozen solid. This makes it easier to slice.",
-            "Slice the beef against the grain into 1/8 to 1/4 inch thick strips.",
-            "In a large resealable plastic bag, combine soy sauce, Worcestershire sauce, liquid smoke, brown sugar, black pepper, garlic powder, onion powder, red pepper flakes, and kosher salt.",
-            "Add the beef strips to the marinade, seal the bag, and shake to coat the beef evenly. Refrigerate for at least 3 hours, or overnight for best results.",
-            "Preheat your oven to 175°F (80°C). Line baking sheets with aluminum foil and place wire racks on top.",
-            "Arrange the beef strips on the racks in a single layer, making sure they do not overlap.",
-            "Bake in the preheated oven until the jerky is dry and firm yet slightly pliable when bent, about 3-4 hours. Check occasionally to avoid over-drying.",
-            "Remove from the oven and let cool completely. Store in an airtight container."
-          ]
-        }
+      "id": "1202"
+    },
+    {
+      "recipe": {
+        "name": "Beef Jerky",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": [
+          {
+            "item": "beef (flank steak or top round)",
+            "quantity": "1 pound"
+          },
+          {
+            "item": "soy sauce",
+            "quantity": "1/4 cup"
+          },
+          {
+            "item": "Worcestershire sauce",
+            "quantity": "2 tablespoons"
+          },
+          {
+            "item": "liquid smoke",
+            "quantity": "1/2 teaspoon"
+          },
+          {
+            "item": "brown sugar",
+            "quantity": "1 tablespoon"
+          },
+          {
+            "item": "black pepper",
+            "quantity": "1 teaspoon"
+          },
+          {
+            "item": "garlic powder",
+            "quantity": "1 teaspoon"
+          },
+          {
+            "item": "onion powder",
+            "quantity": "1 teaspoon"
+          },
+          {
+            "item": "red pepper flakes",
+            "quantity": "1/2 teaspoon"
+          },
+          {
+            "item": "kosher salt",
+            "quantity": "1 teaspoon"
+          }
+        ],
+        "instructions": [
+          "Freeze the beef for about 1-2 hours until firm but not frozen solid. This makes it easier to slice.",
+          "Slice the beef against the grain into 1/8 to 1/4 inch thick strips.",
+          "In a large resealable plastic bag, combine soy sauce, Worcestershire sauce, liquid smoke, brown sugar, black pepper, garlic powder, onion powder, red pepper flakes, and kosher salt.",
+          "Add the beef strips to the marinade, seal the bag, and shake to coat the beef evenly. Refrigerate for at least 3 hours, or overnight for best results.",
+          "Preheat your oven to 175°F (80°C). Line baking sheets with aluminum foil and place wire racks on top.",
+          "Arrange the beef strips on the racks in a single layer, making sure they do not overlap.",
+          "Bake in the preheated oven until the jerky is dry and firm yet slightly pliable when bent, about 3-4 hours. Check occasionally to avoid over-drying.",
+          "Remove from the oven and let cool completely. Store in an airtight container."
+        ]
       },
-      {
-        "recipe": {
-          "name": "Fried Rice",
-          "image": "https://via.placeholder.com/150",
-          "ingredients": [
-            {"item": "cooked rice", "quantity": "4 cups"},
-            {"item": "vegetable oil", "quantity": "2 tablespoons"},
-            {"item": "onion", "quantity": "1 small, diced"},
-            {"item": "carrot", "quantity": "1 small, diced"},
-            {"item": "peas", "quantity": "1/2 cup"},
-            {"item": "garlic", "quantity": "2 cloves, minced"},
-            {"item": "soy sauce", "quantity": "3 tablespoons"},
-            {"item": "sesame oil", "quantity": "1 teaspoon"},
-            {"item": "eggs", "quantity": "2, beaten"},
-            {"item": "green onions", "quantity": "2, sliced"},
-            {"item": "salt", "quantity": "to taste"},
-            {"item": "black pepper", "quantity": "to taste"}
-          ],
-          "instructions": [
-            "Heat 1 tablespoon of vegetable oil in a large skillet or wok over medium-high heat.",
-            "Add the diced onion and carrot, and cook for 2-3 minutes until they begin to soften.",
-            "Add the peas and minced garlic, and cook for another 1-2 minutes.",
-            "Push the vegetables to one side of the skillet and pour the beaten eggs into the other side. Scramble the eggs until fully cooked, then mix them with the vegetables.",
-            "Add the remaining 1 tablespoon of vegetable oil to the skillet. Add the cooked rice and stir to combine with the vegetable and egg mixture.",
-            "Pour the soy sauce and sesame oil over the rice, and stir to coat the rice evenly.",
-            "Season with salt and black pepper to taste.",
-            "Cook for another 2-3 minutes, stirring occasionally, until the rice is heated through.",
-            "Remove from heat and stir in the sliced green onions.",
-            "Serve hot and enjoy your fried rice."
-          ]
+      "id": "e9f2"
+    },
+    {
+      "recipe": {
+        "name": "Fried Rice",
+        "image": "https://via.placeholder.com/150",
+        "ingredients": [
+          {
+            "item": "cooked rice",
+            "quantity": "4 cups"
+          },
+          {
+            "item": "vegetable oil",
+            "quantity": "2 tablespoons"
+          },
+          {
+            "item": "onion",
+            "quantity": "1 small, diced"
+          },
+          {
+            "item": "carrot",
+            "quantity": "1 small, diced"
+          },
+          {
+            "item": "peas",
+            "quantity": "1/2 cup"
+          },
+          {
+            "item": "garlic",
+            "quantity": "2 cloves, minced"
+          },
+          {
+            "item": "soy sauce",
+            "quantity": "3 tablespoons"
+          },
+          {
+            "item": "sesame oil",
+            "quantity": "1 teaspoon"
+          },
+          {
+            "item": "eggs",
+            "quantity": "2, beaten"
+          },
+          {
+            "item": "green onions",
+            "quantity": "2, sliced"
+          },
+          {
+            "item": "salt",
+            "quantity": "to taste"
+          },
+          {
+            "item": "black pepper",
+            "quantity": "to taste"
+          }
+        ],
+        "instructions": [
+          "Heat 1 tablespoon of vegetable oil in a large skillet or wok over medium-high heat.",
+          "Add the diced onion and carrot, and cook for 2-3 minutes until they begin to soften.",
+          "Add the peas and minced garlic, and cook for another 1-2 minutes.",
+          "Push the vegetables to one side of the skillet and pour the beaten eggs into the other side. Scramble the eggs until fully cooked, then mix them with the vegetables.",
+          "Add the remaining 1 tablespoon of vegetable oil to the skillet. Add the cooked rice and stir to combine with the vegetable and egg mixture.",
+          "Pour the soy sauce and sesame oil over the rice, and stir to coat the rice evenly.",
+          "Season with salt and black pepper to taste.",
+          "Cook for another 2-3 minutes, stirring occasionally, until the rice is heated through.",
+          "Remove from heat and stir in the sliced green onions.",
+          "Serve hot and enjoy your fried rice."
+        ]
+      },
+      "id": "0f41"
+    },
+    {
+      "id": "74b86576-fd8f-4e01-94a7-c643f90fcb17",
+      "name": "A",
+      "image": "a",
+      "category": "Food",
+      "prepTime": "30mins",
+      "servingTime": "10",
+      "servings": "3",
+      "ingredients": [
+        {
+          "quantity": "1",
+          "item": "1"
         }
-      }
-    ]
-  }  
+      ],
+      "instructions": [
+        "1"
+      ]
+    }
+  ]
+}

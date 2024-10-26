@@ -21,14 +21,16 @@
   border-radius: 8px;
 }
 
-.recipe ul, .recipe ol {
+.recipe ul,
+.recipe ol {
   text-align: left;
   margin: 0 auto;
   padding: 0;
   list-style-position: inside;
 }
 
-.recipe ul li, .recipe ol li {
+.recipe ul li,
+.recipe ol li {
   padding: 4px 0;
   color: #333;
 }
@@ -66,20 +68,24 @@
   margin-bottom: 8px;
 }
 
-.add-ingredient, .add-instruction {
+.add-ingredient,
+.add-instruction {
   margin-top: 16px;
 }
 
-.add-ingredient input, .add-instruction input {
+.add-ingredient input,
+.add-instruction input {
   margin-right: 8px;
 }
 
-.add-ingredient button, .add-instruction button {
+.add-ingredient button,
+.add-instruction button {
   margin-left: 8px;
   background-color: #28a745;
 }
 
-.add-ingredient button:hover, .add-instruction button:hover {
+.add-ingredient button:hover,
+.add-instruction button:hover {
   background-color: #218838;
 }
 
@@ -103,7 +109,8 @@ input[type="text"]:focus {
   flex: 1;
 }
 
-.add-ingredient input, .add-instruction input {
+.add-ingredient input,
+.add-instruction input {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 8px;
@@ -112,11 +119,13 @@ input[type="text"]:focus {
   box-sizing: border-box;
 }
 
-.add-ingredient input::placeholder, .add-instruction input::placeholder {
+.add-ingredient input::placeholder,
+.add-instruction input::placeholder {
   color: #aaa;
 }
 
-.add-ingredient button, .add-instruction button {
+.add-ingredient button,
+.add-instruction button {
   border-radius: 4px;
   padding: 8px 16px;
   font-size: 1em;
@@ -125,7 +134,8 @@ input[type="text"]:focus {
   transition: background-color 0.3s ease;
 }
 
-.add-ingredient button:disabled, .add-instruction button:disabled {
+.add-ingredient button:disabled,
+.add-instruction button:disabled {
   background-color: #ddd;
   cursor: not-allowed;
 }
@@ -133,4 +143,15 @@ input[type="text"]:focus {
 input::placeholder {
   color: #aaa;
   font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .recipe {
+    max-width: 100%;
+    margin: 8px;
+  }
+
+  .recipe h2 {
+    font-size: 1.2em;
+  }
 }

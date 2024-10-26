@@ -10,6 +10,7 @@ const UserProfile = ({ user, onUpdate, onDismiss }) => {
     profilePicture: user.profilePicture || '',
   });
 
+
   if (!user) {
     return <div>No user data available</div>;
   }
@@ -21,10 +22,73 @@ const UserProfile = ({ user, onUpdate, onDismiss }) => {
     });
   };
 
-  const handleSave = () => {
+
+  const handleSave = (e) => {
+    e.preventDefault();
     onUpdate(formData);
     setIsEditing(false);
   };
+
+  const renderEditForm = () => (
+    <form onSubmit={handleSave}>
+      <div>
+        <label htmlFor="username">Username:</label>
+        <input
+          id="username"
+          type="text"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="email">Email:</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="password">Password:</label>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="profilePicture">Profile Picture URL:</label>
+        <input
+          id="profilePicture"
+          type="text"
+          name="profilePicture"
+          placeholder="Profile Picture URL"
+          value={formData.profilePicture}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="form-buttons">
+        <button type="submit">Save</button>
+        <button type="button" onClick={() => setIsEditing(false)}>Cancel</button>
+      </div>
+    </form>
+  );
+
+ 
+  const renderProfileInfo = () => (
+    <>
+      <p>{formData.username}</p>
+      <p>Email: {formData.email}</p>
+      <p>Password: {formData.password}</p>
+      <button onClick={() => setIsEditing(true)}>Edit Profile</button>
+      <button className="dismiss-button" onClick={onDismiss}>Dismiss</button>
+    </>
+  );
 
   return (
     <div className="user-profile">
@@ -39,55 +103,7 @@ const UserProfile = ({ user, onUpdate, onDismiss }) => {
         )}
       </div>
       <div className="user-info">
-        {isEditing ? (
-          <form onSubmit={(e) => { e.preventDefault(); handleSave(); }}>
-            <div>
-              <label htmlFor="username">Username:</label>
-              <input
-                id="username"
-                type="text"
-                name="username"
-                value={formData.username} onChange={handleChange}/>
-            </div>
-            <div>
-              <label htmlFor="email">Email:</label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                value={formData.email} onChange={handleChange}/>
-            </div>
-            <div>
-              <label htmlFor="password">Password:</label>
-              <input
-                id="password"
-                type="password"
-                name="password"
-                value={formData.password} onChange={handleChange}/>
-            </div>
-            <div>
-              <label htmlFor="profilePicture">Profile Picture URL:</label>
-              <input
-                id="profilePicture"
-                type="text"
-                name="profilePicture"
-                placeholder="Profile Picture URL"
-                value={formData.profilePicture} onChange={handleChange}/>
-            </div>
-            <div className="form-buttons">
-              <button type="submit">Save</button>
-              <button type="button" onClick={() => setIsEditing(false)}>Cancel</button>
-            </div>
-          </form>
-        ) : (
-          <>
-            <p>Username: {formData.username}</p>
-            <p>Email: {formData.email}</p>
-            <p>Password: {formData.password}</p>
-            <button onClick={() => setIsEditing(true)}>Edit Profile</button>
-            <button className="dismiss-button" onClick={onDismiss}>Dismiss</button>
-          </>
-        )}
+        {isEditing ? renderEditForm() : renderProfileInfo()}
       </div>
     </div>
   );

@@ -1,13 +1,13 @@
 .user-profile {
   padding: 20px;
   width: auto;
-  margin: 0 auto; 
+  margin: 0 auto;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
-  position: fixed; 
-  top: 0px; 
-  width: 100%; 
+  position: fixed;
+  top: 0px;
+  width: 100%;
   z-index: 1000;
 }
 
@@ -37,7 +37,6 @@
   overflow: hidden;
   margin: 20px auto;
 }
-
 
 .profile-img {
   width: 100%;
@@ -69,4 +68,31 @@
 
 .user-info button:hover {
   background-color: #0056b3;
+}
+
+
+@media (max-width: 768px) {
+  .user-profile {
+    padding: 15px;
+  }
+
+  .user-info button {
+    padding: 8px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .add-recipe-form input,
+  .add-recipe-form button {
+    padding: 8px;
+  }
+
+  .auth-container {
+    padding: 20px;
+  }
+
+  .user-profile {
+    padding: 10px;
+  }
 }

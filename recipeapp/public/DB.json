@@ -54,55 +54,101 @@
       "id": "572a"
     },
     {
-      "name": "Savory Party Bread",
-      "image": "https://media.gettyimages.com/id/1373039737/photo/breads-for-snack.jpg?s=612x612&w=gi&k=20&c=oM43PklRWJy8k8ol4jFituVc-fkL1LIk9UWnwhmTAJY=",
-      "category": "Appetizer",
+      "name": "Lemon Sorbet",
+      "image": "https://media.gettyimages.com/id/1296918230/photo/homemade-lemon-sorbet-scoops-in-shabby-chic-kitchen.jpg?s=612x612&w=gi&k=20&c=x8LFbjwKIHUgLD1USMRpcuH-5WlZ0wXJR8ld5gO0WMw=",
+      "category": "Palette Cleanser/Drink",
       "prepTime": "10 minutes",
-      "servingTime": "30 minutes",
-      "servings": "8 servings",
+      "servingTime": "3 hours (freezing time)",
+      "servings": "4 servings",
       "ingredients": [
         {
-          "item": "loaf of French bread",
-          "quantity": "1"
+          "item": "water",
+          "quantity": "1 cup"
         },
         {
-          "item": "butter",
-          "quantity": "1/2 cup"
+          "item": "sugar",
+          "quantity": "1 cup"
         },
         {
-          "item": "garlic cloves",
-          "quantity": "4, minced"
+          "item": "lemon juice",
+          "quantity": "1 cup (from about 4 lemons)"
         },
         {
-          "item": "Parmesan cheese",
-          "quantity": "1/2 cup, grated"
-        },
-        {
-          "item": "cheddar cheese",
-          "quantity": "1 cup, shredded"
-        },
-        {
-          "item": "fresh parsley",
-          "quantity": "2 tablespoons, chopped"
-        },
-        {
-          "item": "salt",
-          "quantity": "1/2 teaspoon"
-        },
-        {
-          "item": "black pepper",
-          "quantity": "1/4 teaspoon"
+          "item": "lemon zest",
+          "quantity": "1 tablespoon"
         }
       ],
       "instructions": [
-        "Preheat your oven to 375°F (190°C).",
-        "Slice the French bread in half lengthwise.",
-        "In a bowl, mix together the butter, minced garlic, Parmesan cheese, cheddar cheese, parsley, salt, and pepper.",
-        "Spread the butter mixture evenly over the cut sides of the bread.",
-        "Place the bread on a baking sheet and bake for 15-20 minutes, or until the cheese is melted and bubbly.",
-        "Remove from the oven and let cool slightly before slicing into pieces and serving."
+        "In a small saucepan, combine the water and sugar. Heat over medium heat, stirring until the sugar is completely dissolved. Remove from heat and let cool to room temperature.",
+        "Once cooled, stir in the lemon juice and lemon zest.",
+        "Pour the mixture into a shallow dish and place it in the freezer.",
+        "After about 1 hour, stir the mixture with a fork, breaking up any ice crystals that have formed.",
+        "Continue to freeze, stirring every 30 minutes until the sorbet is firm and smooth, about 2 more hours.",
+        "Once the sorbet is fully frozen, scoop into bowls and serve immediately."
       ],
-      "id": "9392"
+      "id": "572b"
+    },
+    {
+      "name": "Greek Salad",
+      "image": "https://media.gettyimages.com/id/185119929/photo/plate-of-salad.jpg?s=612x612&w=gi&k=20&c=fIs_olFhMdTpok4muVPTrvei8zAHiXLTbNvFdEGSDf8=",
+      "category": "Salad",
+      "prepTime": "15 minutes",
+      "servingTime": "15 minutes",
+      "servings": "4 servings",
+      "ingredients": [
+        {
+          "item": "cucumber, sliced",
+          "quantity": "1 large"
+        },
+        {
+          "item": "tomatoes, chopped",
+          "quantity": "4 medium"
+        },
+        {
+          "item": "red onion, thinly sliced",
+          "quantity": "1/2 medium"
+        },
+        {
+          "item": "green bell pepper, sliced",
+          "quantity": "1 medium"
+        },
+        {
+          "item": "kalamata olives",
+          "quantity": "1/2 cup"
+        },
+        {
+          "item": "feta cheese, cubed",
+          "quantity": "1/2 cup"
+        },
+        {
+          "item": "extra virgin olive oil",
+          "quantity": "1/4 cup"
+        },
+        {
+          "item": "red wine vinegar",
+          "quantity": "2 tablespoons"
+        },
+        {
+          "item": "dried oregano",
+          "quantity": "1 teaspoon"
+        },
+        {
+          "item": "salt",
+          "quantity": "to taste"
+        },
+        {
+          "item": "black pepper",
+          "quantity": "to taste"
+        }
+      ],
+      "instructions": [
+        "In a large bowl, combine the sliced cucumber, chopped tomatoes, sliced red onion, and sliced green bell pepper.",
+        "Add the kalamata olives and cubed feta cheese to the bowl.",
+        "In a small bowl, whisk together the olive oil, red wine vinegar, dried oregano, salt, and black pepper to create the dressing.",
+        "Pour the dressing over the salad and toss gently to combine.",
+        "Serve immediately, garnished with additional oregano or feta cheese if desired."
+      ],
+      "id": "572d"
     },
     {
       "name": "Asparagus-Stuffed Chicken Breast",

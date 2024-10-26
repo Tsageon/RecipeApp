@@ -1,68 +1,78 @@
 .auth-container {
   justify-content: center;
-    width: auto;
-    height: auto;
-    margin-top: 100px;
-    padding: 100px;
-    background: whitesmoke;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Poppins', sans-serif;}
-  
+  width: auto;
+  height: auto;
+  margin-top: 100px;
+  padding: 100px;
+  background: whitesmoke;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 1.5em;
+  font-size: 24px;
+  color: #333;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.auth-container input:focus {
+  border-color: #06aed8;
+  outline: none;
+}
+
+.auth-container button {
+  width: 100%;
+  padding: 0.7em;
+  background-color: #06aed8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.auth-container button:hover {
+  background-color: #0094b8;
+}
+
+.auth-container .link-container {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.auth-container .link-container p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.auth-container .link-container a {
+  color: #06aed8;
+  text-decoration: none;
+}
+
+.auth-container .link-container a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 50px;
+  }
+
   .auth-container h2 {
-    text-align: center;
-    margin-bottom: 1.5em;
-    font-size: 24px;
-    color: #333;}
-  
-  .auth-container input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 1em;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-sizing: border-box;
-    font-size: 16px;}
-  
-  .auth-container input:focus {
-    border-color: #06aed8;
-    outline: none;}
-  
-  .auth-container button {
-    width: 100%;
-    padding: 0.7em;
-    background-color: #06aed8;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;}
-  
-  .auth-container button:hover {
-    background-color: #0094b8;}
-  
-  .auth-container .link-container {
-    text-align: center;
-    margin-top: 1em;}
-  
-  .auth-container .link-container p {
-    margin: 0;
-    font-size: 14px;}
-  
-  .auth-container .link-container a {
-    color: #06aed8;
-    text-decoration: none;}
-  
-  .auth-container .link-container a:hover {
-    text-decoration: underline;}  
-    
-  .logo-container {
-      margin-bottom: 20px;}
-    
-  .logo-video {
-      width: 100%;
-      max-width: 100px;
-      height: auto;
-      border: none;
-      border-radius: 100px;}
+    font-size: 20px;
+  }
+}

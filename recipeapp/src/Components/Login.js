@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './auth.css'; 
+import './auth.css';
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
@@ -10,7 +10,7 @@ const Login = ({ onLogin }) => {
   useEffect(() => {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
     if (loggedInUser) {
-      setUserName(loggedInUser.name); 
+      setUserName(loggedInUser.name);
     }
   }, []);
 
@@ -26,7 +26,8 @@ const Login = ({ onLogin }) => {
       onLogin();
     } else {
       alert('Invalid Email or Password');
-    }};
+    }
+  };
 
   return (
     <div className="auth-container">
@@ -35,20 +36,20 @@ const Login = ({ onLogin }) => {
         Need a better browser.
       </video>
       <h2>Login</h2>
-      <p><i>Welcome {userName ? `Back, ${userName}` : "to Cooking With Tlhogi"}!</i></p> {}
+      <p><i>Welcome {userName ? `Back, ${userName}` : "to Cooking With Tlhogi"}!</i></p> { }
       <form onSubmit={handleLogin}>
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          required/>
+          required />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required/>
+          required />
         <button type="submit">Login</button>
       </form>
       <div className="link-container">
