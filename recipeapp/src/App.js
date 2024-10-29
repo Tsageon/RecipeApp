@@ -70,7 +70,7 @@ const App = () => {
 
   const handleAddRecipe = async (newRecipe) => {
     try {
-      const response = await fetch('http://localhost:3001/recipes', { 
+      const response = await fetch('http://localhost:3009/recipes', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',},
@@ -90,7 +90,7 @@ const App = () => {
   
   const handleUpdateRecipe = async (updatedRecipe) => {
     try {
-      const response = await fetch(`http://localhost:3001/recipes/${updatedRecipe.id}`, { 
+      const response = await fetch(`http://localhost:3009/recipes/${updatedRecipe.id}`, { 
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',},
@@ -108,7 +108,7 @@ const App = () => {
 
   const handleDeleteRecipe = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3001/recipes/${id}`, { 
+      const response = await fetch(`http://localhost:3009/recipes/${id}`, { 
         method: 'DELETE',});
     
       if (!response.ok) {

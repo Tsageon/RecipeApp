@@ -59,7 +59,7 @@ const AddRecipeForm = ({ onAdd, onDismiss }) => {
       };
   
       try {
-        const response = await fetch('http://localhost:3001/recipes', {
+        const response = await fetch('http://localhost:3009/recipes', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
