@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import './auth.css';
 
 const Login = ({ onLogin }) => {
@@ -14,20 +15,31 @@ const Login = ({ onLogin }) => {
     }
   }, []);
 
-  const handleLogin = (e) => {
-    e.preventDefault();
+const handleLogin = (e) => {
+  e.preventDefault();
 
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(user => user.email === email && user.password === password);
+  const users = JSON.parse(localStorage.getItem('users')) || [];
+  const user = users.find(user => user.email === email && user.password === password);
 
-    if (user) {
-      localStorage.setItem('loggedInUser', JSON.stringify(user));
-      setUserName(user.name);
-      onLogin();
-    } else {
-      alert('Invalid Email or Password');
-    }
-  };
+  if (user) {
+    localStorage.setItem('loggedInUser', JSON.stringify(user));
+    setUserName(user.name);
+    onLogin();
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Login Successful',
+      text: `Welcome back, ${user.email}!`,
+    });
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Invalid Email or Password',
+      text: 'Please check your credentials and try again.',
+    });
+  }
+};
+
 
   return (
     <div className="auth-container">

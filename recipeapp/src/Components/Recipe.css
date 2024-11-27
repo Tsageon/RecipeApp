@@ -89,7 +89,7 @@
   background-color: #218838;
 }
 
-input[type="text"] {
+.input[type="text"] {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 8px;

@@ -6,16 +6,18 @@
   border-radius: 5px;
   background-color: #f9f9f9;
   position: fixed;
-  top: 0px;
+  top: 0;
+  left: 0;
   width: 100%;
   z-index: 1000;
+  box-sizing: border-box;
 }
 
 .dismiss-button {
   background-color: black;
   color: white;
   border: none;
-  padding: 10px 10px;
+  padding: 10px 20px;
   border-radius: 14px;
   cursor: pointer;
 }
@@ -50,10 +52,11 @@
 
 .user-info input {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   margin: 5px 0;
   border: 1px solid #ccc;
   border-radius: 3px;
+  font-size: 16px;
 }
 
 .user-info button {
@@ -64,35 +67,74 @@
   border: none;
   cursor: pointer;
   border-radius: 3px;
+  font-size: 16px;
 }
 
 .user-info button:hover {
   background-color: #0056b3;
 }
 
-
+/* Media query for devices with screen width <= 768px (tablets, small screens) */
 @media (max-width: 768px) {
   .user-profile {
     padding: 15px;
   }
 
+  .profile-circle {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+    margin: 10px auto;
+  }
+
+  .user-info input,
   .user-info button {
     padding: 8px;
+    font-size: 14px;
+  }
+
+  .user-info button {
+    width: 100%;
+  }
+
+  .dismiss-button {
+    padding: 8px 16px;
   }
 }
 
 
 @media (max-width: 480px) {
-  .add-recipe-form input,
-  .add-recipe-form button {
-    padding: 8px;
-  }
-
-  .auth-container {
-    padding: 20px;
-  }
-
   .user-profile {
     padding: 10px;
+  }
+
+  .profile-circle {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin: 10px auto;
+  }
+
+  .user-info input,
+  .user-info button {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .user-info button {
+    width: 50%;
+  }
+
+  .dismiss-button {
+    padding: 8px 14px;
+  }
+
+  .user-info input {
+    font-size: 14px;
+  }
+
+  .user-info p {
+    font-size: 14px;
+    margin: 8px 0;
   }
 }

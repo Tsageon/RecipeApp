@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Swal from 'sweetalert2';
 import './AddRecipeForm.css';
 
 const AddRecipeForm = ({ onAdd, onDismiss }) => {
@@ -59,12 +60,12 @@ const AddRecipeForm = ({ onAdd, onDismiss }) => {
       };
   
       try {
-        const response = await fetch('http://localhost:3009/recipes', {
+        const response = await fetch('http://localhost:3000/recipes', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
           },
-          body: JSON.stringify(newRecipe)
+          body: JSON.stringify(newRecipe),
         });
   
         if (!response.ok) {
@@ -72,13 +73,17 @@ const AddRecipeForm = ({ onAdd, onDismiss }) => {
         }
   
         const addedRecipe = await response.json();
-        alert('Recipe Successfully Added!');
-  
         
+        Swal.fire({
+          icon: 'success',
+          title: 'Recipe Successfully Added!',
+          text: `The recipe "${addedRecipe.name}" has been added.`,
+        });
+  
         if (onAdd) {
           onAdd(addedRecipe);  
         }
-  
+ 
         setName('');
         setImage('');
         setCategory('');
@@ -89,10 +94,19 @@ const AddRecipeForm = ({ onAdd, onDismiss }) => {
         setInstructions(['']);
       } catch (error) {
         console.error('Error adding recipe:', error);
-        alert('Failed to add recipe.');
+
+        Swal.fire({
+          icon: 'error',
+          title: 'Failed to Add Recipe',
+          text: 'There was an error while adding the recipe. Please try again.',
+        });
       }
     } else {
-      alert('Enter A Name And An Image URL For The Recipe.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Missing Fields',
+        text: 'Enter a name and an image URL for the recipe.',
+      });
     }
   };
   

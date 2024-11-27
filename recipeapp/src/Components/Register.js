@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import './auth.css'; 
 
 const Register = () => {
@@ -12,26 +13,43 @@ const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-
+  
     const users = JSON.parse(localStorage.getItem('users')) || [];
     console.log('Users:', users);
-
+  
     if (users.find(user => user.username === username)) {
-      alert('Username Exists');
+      Swal.fire({
+        icon: 'error',
+        title: 'Username Exists',
+        text: 'Please choose a different username.',
+      });
     } else if (users.find(user => user.email === email)) {
-      alert('Email Already Registered');
+      Swal.fire({
+        icon: 'error',
+        title: 'Email Already Registered',
+        text: 'This email is already registered. Try logging in.',
+      });
     } else if (!/^\d{10}$/.test(phone)) {
-      alert('Enter a Valid 10-digit Phone Number');
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid Phone Number',
+        text: 'Enter a valid 10-digit phone number.',
+      });
     } else {
       const newUser = { username, password, email, phone };
       users.push(newUser);
       localStorage.setItem('users', JSON.stringify(users));
-      alert('Registration Successful!');
-
-
+  
+      Swal.fire({
+        icon: 'success',
+        title: 'Registration Successful!',
+        text: 'You can now log in with your credentials.',
+      });
+  
       navigate('/login');
     }
   };
+  
 
 
   return (

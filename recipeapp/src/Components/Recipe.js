@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Recipe.css';
+import Loader from './loader';
+import Swal from 'sweetalert2';
 
 const Recipe = ({ recipe, onEdit, onDelete }) => {
   const [showAllInstructions, setShowAllInstructions] = useState(false);
@@ -55,12 +57,21 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
         ingredients: [...editedRecipe.ingredients, newIngredient],
       });
       setNewIngredient({ quantity: '', item: '' });
-      alert('Ingredient Added!');
+  
+      Swal.fire({
+        icon: 'success',
+        title: 'Ingredient Added!',
+        text: 'The ingredient has been successfully added to the recipe.',
+      });
     } else {
-      alert('Enter Both Quantity and Item.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Enter Both Quantity and Item',
+        text: 'Please fill in both the quantity and item fields before adding.',
+      });
     }
   };
-
+  
   const handleAddInstruction = () => {
     if (newInstruction) {
       setEditedRecipe({
@@ -68,14 +79,23 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
         instructions: [...editedRecipe.instructions, newInstruction],
       });
       setNewInstruction('');
-      alert('Instruction Added!');
+  
+      Swal.fire({
+        icon: 'success',
+        title: 'Instruction Added!',
+        text: 'Your new instruction has been added to the recipe.',
+      });
     } else {
-      alert('Enter An Instruction.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Enter An Instruction',
+        text: 'Please enter an instruction before adding.',
+      });
     }
   };
-
+  
   if (!recipe) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (
@@ -84,6 +104,7 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
         <input
           type="text"
           name="name"
+          className='input'
           value={editedRecipe.name}
           onChange={handleChange}/>
       ) : (
@@ -93,6 +114,7 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
         <input
           type="text"
           name="image"
+          className='input'
           value={editedRecipe.image}
           onChange={handleChange}/>
       ) : (
@@ -104,17 +126,20 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
           <input
             type="text"
             name="category"
+            className='input'
             placeholder="Category"
             value={editedRecipe.category}
             onChange={handleChange}/>
           <input
             type="text"
             name="prepTime"
+            className='input'
             placeholder="Prep Time"
             value={editedRecipe.prepTime}
             onChange={handleChange}/>
           <input
             type="text"
+            className='input'
             name="servingTime"
             placeholder="Serving Time"
             value={editedRecipe.servingTime}
@@ -122,6 +147,7 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
           <input
             type="number"
             name="servings"
+            className='input'
             placeholder="Servings"
             value={editedRecipe.servings}
             onChange={handleChange}/>
@@ -141,12 +167,14 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
                 <input
                   type="text"
                   name="quantity"
+                  className='input'
                   value={ingredient.quantity}
                   onChange={(e) => handleIngredientChange(index, e)}
                   placeholder="Quantity"/>
                 <input
                   type="text"
                   name="item"
+                  className='input'
                   value={ingredient.item}
                   onChange={(e) => handleIngredientChange(index, e)}
                   placeholder="Item"/>
@@ -154,12 +182,14 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
             ))}
             <button onClick={handleAddIngredient}>Add Ingredient</button>
             <input
+              className='input'
               type="text"
               value={newIngredient.quantity}
               onChange={(e) => setNewIngredient({...newIngredient, quantity: e.target.value })}
               placeholder="New Quantity"/>
             <input
               type="text"
+              className='input'
               value={newIngredient.item}
               onChange={(e) => setNewIngredient({...newIngredient, item: e.target.value })}
               placeholder="New Item"/>
@@ -188,7 +218,7 @@ const Recipe = ({ recipe, onEdit, onDelete }) => {
                   </li>
                 ))}
                 <button onClick={handleAddInstruction}>Add Instruction</button>
-                <input
+                <input className='input'
                   type="text"
                   placeholder="New Instruction"
                   value={newInstruction} onChange={(e) => setNewInstruction(e.target.value)}/>
