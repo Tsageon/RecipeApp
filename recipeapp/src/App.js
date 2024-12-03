@@ -6,9 +6,8 @@ import Register from './Components/Register';
 import Recipe from './Components/Recipe';
 import AddRecipeForm from './Components/AddRecipeForm';
 import UserProfile from './Components/UserProfile';
-import './App.css';
 import Loader from './Components/loader';
-
+import './App.css';
 
 const RECIPES_PER_PAGE = 3;
 
@@ -265,7 +264,11 @@ const App = () => {
   }
 
   if (filteredRecipes.length === 0) {
-    return <div>No Recipes Available.</div>;
+    return Swal.fire({
+      title: 'No recipes available',
+      text: 'Please add a recipe or click a category that actually exists',
+      icon: 'info',
+    });
   }
 
   const startIndex = (currentPage - 1) * RECIPES_PER_PAGE;

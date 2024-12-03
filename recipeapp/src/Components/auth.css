@@ -32,7 +32,6 @@
   outline: none;
 }
 
-
 .auth-container button {
   width: 100%;
   padding: 0.7em;
@@ -75,5 +74,23 @@
 
   .auth-container h2 {
     font-size: 20px;
+  }
+  
+  .auth-container input {
+    font-size: 14px; 
+    padding: 12px; 
+  }
+
+  .auth-container button {
+    padding: 0.9em; 
+    font-size: 18px; 
+  }
+
+  .auth-container .link-container p {
+    font-size: 12px; 
+  }
+
+  .auth-container .link-container a {
+    font-size: 14px; 
   }
 }

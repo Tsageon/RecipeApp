@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 import './UserProfile.css';
 
 const UserProfile = ({ user, onUpdate, onDismiss }) => {
@@ -12,7 +13,7 @@ const UserProfile = ({ user, onUpdate, onDismiss }) => {
 
 
   if (!user) {
-    return <div>No user data available</div>;
+    return Swal.fire({title:'No Info found', icon:'warning', });
   }
 
   const handleChange = (e) => {
